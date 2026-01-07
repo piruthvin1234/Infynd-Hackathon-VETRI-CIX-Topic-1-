@@ -1,0 +1,176 @@
+{
+  "company_name": {
+    "value": "Aristi | Cyber Security Made Simple",
+    "confidence": 0.8,
+    "source": [
+      "title",
+      "h1"
+    ]
+  },
+  "domain": {
+    "value": "aristi.co.uk",
+    "confidence": 1.0,
+    "source": [
+      "input"
+    ]
+  },
+  "logo_url": {
+    "value": "https://cdn.prod.website-files.com/63d135ec9c5e18236ccb47e1/63d139896c170a5ade2ce6ad_Logo%20-%20Strip%20(Colour).svg",
+    "confidence": 0.7,
+    "source": [
+      "img",
+      "fallback"
+    ]
+  },
+  "industry": {
+    "value": "Cyber Security",
+    "confidence": 0.6,
+    "source": [
+      "keyword"
+    ]
+  },
+  "sub_industry": {
+    "value": "Technology Services",
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "short_description": {
+    "value": "Aristi is a CREST and CHECK Cyber Security provider based in the UK. We provide end-to-end cyber security services to protect your data and reputation.",
+    "confidence": 0.8,
+    "source": [
+      "meta"
+    ]
+  },
+  "long_description": {
+    "value": "Aristi is a CREST and CHECK Cyber Security provider based in the UK. We provide end-to-end cyber security services to protect your data and reputation.",
+    "confidence": 0.6,
+    "source": [
+      "meta"
+    ]
+  },
+  "products_services": {
+    "value": [
+      "Professional Services"
+    ],
+    "confidence": 0.6,
+    "source": [
+      "li"
+    ]
+  },
+  "headquarters": {
+    "value": "United Kingdom",
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "full_address": {
+    "value": "uk E-mail Innovation Centre, Longbridge Technology Park, 1 Devon Way, Longbridge, Birmingham B31 2TS Services Security Testing CREST Penetration Testing OT Penetration Testing CHECK Penetration Testing Red Team Assessments Cyber Essentials/Cyber Essentials Plus Cloud Security Assessment PSN/PSNP IT Health Check Phishing Assessments Configuration Reviews Web Application and API Testing Mobile Application Testing Physical Security Assessments Vulnerability Assessments managed security Cyber Security as a Service Testing as a Service DPO as a Service ISO 27001 as a Service vCISO as a Service Information Assurance Cyber Tabletop Exercises GDPR/DPIA Services SIRO/IAO Training Security Review Services Talk with our sales team Contact Sales See our existing clients\u00e2\u0080\u0099 work Services Sectors About Us Team Case Studies Podcasts Blogs Contact Contact Cyber Security Made Simple",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "office_locations": {
+    "value": [
+      "United Kingdom"
+    ],
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "key_people": {
+    "value": [
+      "Not Publicly Listed"
+    ],
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "contact_email": {
+    "value": "info@aristi.co.uk",
+    "confidence": 0.7,
+    "source": [
+      "regex",
+      "fallback"
+    ]
+  },
+  "contact_phone": {
+    "value": "0121 222 5630",
+    "confidence": 0.6,
+    "source": [
+      "regex",
+      "fallback"
+    ]
+  },
+  "sales_phone": {
+    "value": "0121 222 5630",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "fax": {
+    "value": "Not Available",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "mobile": {
+    "value": "Not Available",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "other_numbers": {
+    "value": "None",
+    "confidence": 0.4,
+    "source": [
+      "regex"
+    ]
+  },
+  "contact_page": {
+    "value": "https://aristi.co.uk/contact",
+    "confidence": 0.6,
+    "source": [
+      "heuristic"
+    ]
+  },
+  "hours_of_operation": {
+    "value": "Business Hours",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "hq_indicator": {
+    "value": "Yes",
+    "confidence": 0.6,
+    "source": [
+      "default"
+    ]
+  },
+  "tech_stack_signals": {
+    "value": [
+      "jQuery"
+    ],
+    "confidence": 0.7,
+    "source": [
+      "html"
+    ]
+  },
+  "founded_year": {
+    "value": "2008",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "missing_fields": []
+}

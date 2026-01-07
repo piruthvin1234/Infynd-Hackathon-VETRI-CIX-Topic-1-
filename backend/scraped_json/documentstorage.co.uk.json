@@ -1,0 +1,186 @@
+{
+  "company_name": {
+    "value": "EvaStore Document Management | Storage Shredding Scanning",
+    "confidence": 0.8,
+    "source": [
+      "title",
+      "h1"
+    ]
+  },
+  "domain": {
+    "value": "documentstorage.co.uk",
+    "confidence": 1.0,
+    "source": [
+      "input"
+    ]
+  },
+  "logo_url": {
+    "value": "https://documentstorage.co.uk/favicon.ico",
+    "confidence": 0.7,
+    "source": [
+      "img",
+      "fallback"
+    ]
+  },
+  "industry": {
+    "value": "Cyber Security",
+    "confidence": 0.6,
+    "source": [
+      "keyword"
+    ]
+  },
+  "sub_industry": {
+    "value": "Technology Services",
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "short_description": {
+    "value": "EvaStore Offers Document Management In Our Secure State Of The Art Facility. Our Services Include Document Storage, Shredding And Scanning.",
+    "confidence": 0.8,
+    "source": [
+      "meta"
+    ]
+  },
+  "long_description": {
+    "value": "EvaStore Offers Document Management In Our Secure State Of The Art Facility. Our Services Include Document Storage, Shredding And Scanning.",
+    "confidence": 0.6,
+    "source": [
+      "meta"
+    ]
+  },
+  "products_services": {
+    "value": [
+      "Document Storage",
+      "Records Management",
+      "Document Archiving",
+      "Secure Vault Storage",
+      "Data Tape & Media Storage",
+      "Deed & Will Storage",
+      "Scheduled Shredding",
+      "On-Site Shredding",
+      "One-Off Shredding",
+      "Walk in Shredding"
+    ],
+    "confidence": 0.6,
+    "source": [
+      "li"
+    ]
+  },
+  "headquarters": {
+    "value": "United Kingdom",
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "full_address": {
+    "value": "Find out more Discover our customer service for yourself Speak to our team today: 01691 650355 Site map Home Storage Shredding Scanning Services About us Legal Cookie Policy Privacy Policy Duty of care Security Copyright 2025 \u00a9 Evastore Ltd Contact EVA2, Artillery Business Park, Park Hall, Oswestry, Shropshire, SY11 4AD X Instagram LinkedIn Facebook Tap to call our team \u2191 See how affordable we are: I am happy to receive newsletters and offers from Evastore Manage Cookie Consent To provide the best experiences, we use technologies like cookies to store and/or access device information",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "office_locations": {
+    "value": [
+      "United Kingdom"
+    ],
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "key_people": {
+    "value": [
+      "Not Publicly Listed"
+    ],
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "contact_email": {
+    "value": "info@documentstorage.co.uk",
+    "confidence": 0.7,
+    "source": [
+      "regex",
+      "fallback"
+    ]
+  },
+  "contact_phone": {
+    "value": "01691 650355",
+    "confidence": 0.6,
+    "source": [
+      "regex",
+      "fallback"
+    ]
+  },
+  "sales_phone": {
+    "value": "01691 650355",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "fax": {
+    "value": "Not Available",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "mobile": {
+    "value": "Not Available",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "other_numbers": {
+    "value": "None",
+    "confidence": 0.4,
+    "source": [
+      "regex"
+    ]
+  },
+  "contact_page": {
+    "value": "https://documentstorage.co.uk/contact",
+    "confidence": 0.6,
+    "source": [
+      "heuristic"
+    ]
+  },
+  "hours_of_operation": {
+    "value": "Business Hours",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "hq_indicator": {
+    "value": "Yes",
+    "confidence": 0.6,
+    "source": [
+      "default"
+    ]
+  },
+  "tech_stack_signals": {
+    "value": [
+      "WordPress",
+      "jQuery"
+    ],
+    "confidence": 0.7,
+    "source": [
+      "html"
+    ]
+  },
+  "founded_year": {
+    "value": "2025",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "missing_fields": []
+}

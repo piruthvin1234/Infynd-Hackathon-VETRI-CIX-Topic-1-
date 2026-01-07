@@ -1,0 +1,187 @@
+{
+  "company_name": {
+    "value": "OfficeRnD - Flex Space and Hybrid Work Software",
+    "confidence": 0.8,
+    "source": [
+      "title",
+      "h1"
+    ]
+  },
+  "domain": {
+    "value": "officernd.com",
+    "confidence": 1.0,
+    "source": [
+      "input"
+    ]
+  },
+  "logo_url": {
+    "value": "https://officernd.com/favicon.ico",
+    "confidence": 0.7,
+    "source": [
+      "img",
+      "fallback"
+    ]
+  },
+  "industry": {
+    "value": "Cyber Security",
+    "confidence": 0.6,
+    "source": [
+      "keyword"
+    ]
+  },
+  "sub_industry": {
+    "value": "Technology Services",
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "short_description": {
+    "value": "OfficeRnD products help you manage coworking, flex spaces, and hybrid workplaces and provide outstanding workplace experience to people.",
+    "confidence": 0.8,
+    "source": [
+      "meta"
+    ]
+  },
+  "long_description": {
+    "value": "OfficeRnD products help you manage coworking, flex spaces, and hybrid workplaces and provide outstanding workplace experience to people.",
+    "confidence": 0.6,
+    "source": [
+      "meta"
+    ]
+  },
+  "products_services": {
+    "value": [
+      "API & ExtensibilityDeveloper resources and guides",
+      "Data HubAdvanced reporting and analytics",
+      "ServicesOnboarding and training services",
+      "Product Release EditionsQuarterly overview of our latest product updates.",
+      "The Accounting EditionDiscover the latest product updates",
+      "Platform",
+      "Coworking management",
+      "Workplace management",
+      "Coworking ManagementCustomizable Platform for Workspace Operators",
+      "Flex Operations HubAutomate members, bookings, and billing"
+    ],
+    "confidence": 0.6,
+    "source": [
+      "li"
+    ]
+  },
+  "headquarters": {
+    "value": "United Kingdom",
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "full_address": {
+    "value": "United Kingdom",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "office_locations": {
+    "value": [
+      "United Kingdom"
+    ],
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "key_people": {
+    "value": [
+      "Not Publicly Listed"
+    ],
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "contact_email": {
+    "value": "info@officernd.com",
+    "confidence": 0.7,
+    "source": [
+      "regex",
+      "fallback"
+    ]
+  },
+  "contact_phone": {
+    "value": "Not Available",
+    "confidence": 0.6,
+    "source": [
+      "regex",
+      "fallback"
+    ]
+  },
+  "sales_phone": {
+    "value": "Not Available",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "fax": {
+    "value": "Not Available",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "mobile": {
+    "value": "Not Available",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "other_numbers": {
+    "value": "None",
+    "confidence": 0.4,
+    "source": [
+      "regex"
+    ]
+  },
+  "contact_page": {
+    "value": "https://officernd.com/contact",
+    "confidence": 0.6,
+    "source": [
+      "heuristic"
+    ]
+  },
+  "hours_of_operation": {
+    "value": "Business Hours",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "hq_indicator": {
+    "value": "Yes",
+    "confidence": 0.6,
+    "source": [
+      "default"
+    ]
+  },
+  "tech_stack_signals": {
+    "value": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "confidence": 0.7,
+    "source": [
+      "html"
+    ]
+  },
+  "founded_year": {
+    "value": "2026",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "missing_fields": []
+}

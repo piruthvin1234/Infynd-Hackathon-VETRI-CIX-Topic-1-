@@ -1,0 +1,181 @@
+{
+  "company_name": {
+    "value": "Correct Group | IT SUPPORT LONDON | Correct Group, Regis Road, London NW5 3EW, UK",
+    "confidence": 0.8,
+    "source": [
+      "title",
+      "h1"
+    ]
+  },
+  "domain": {
+    "value": "correct-group.co.uk",
+    "confidence": 1.0,
+    "source": [
+      "input"
+    ]
+  },
+  "logo_url": {
+    "value": "https://static.wixstatic.com/media/23f29b_0f5d28d9d30d45de9853af7c80d77881~mv2.png/v1/fill/w_195,h_60,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/correct-group-logo.png",
+    "confidence": 0.7,
+    "source": [
+      "img",
+      "fallback"
+    ]
+  },
+  "industry": {
+    "value": "Cyber Security",
+    "confidence": 0.6,
+    "source": [
+      "keyword"
+    ]
+  },
+  "sub_industry": {
+    "value": "Technology Services",
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "short_description": {
+    "value": "Whether you are an established business looking for an IT partner that you can trust, or a start-up looking for a fresh set-up, we have IT solutions for you. Correct Group are a managed service provider providing IT Support services based in Kentish Town, London and beyond.",
+    "confidence": 0.8,
+    "source": [
+      "meta"
+    ]
+  },
+  "long_description": {
+    "value": "Whether you are an established business looking for an IT partner that you can trust, or a start-up looking for a fresh set-up, we have IT solutions for you. Correct Group are a managed service provider providing IT Support services based in Kentish Town, London and beyond.",
+    "confidence": 0.6,
+    "source": [
+      "meta"
+    ]
+  },
+  "products_services": {
+    "value": [
+      "Cyber Security",
+      "IT Support",
+      "Business Solutions",
+      "About",
+      "Let's Talk"
+    ],
+    "confidence": 0.6,
+    "source": [
+      "li"
+    ]
+  },
+  "headquarters": {
+    "value": "United Kingdom",
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "full_address": {
+    "value": "Correct Group | IT SUPPORT LONDON | Correct Group, Regis Road, London NW5 3EW, UK top of page IT Support & Solutions Cyber Security IT Support Business Solutions About Blog Let's Talk FAQ More Use tab to navigate through the menu items",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "office_locations": {
+    "value": [
+      "United Kingdom"
+    ],
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "key_people": {
+    "value": [
+      "Not Publicly Listed"
+    ],
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "contact_email": {
+    "value": "info@correct-group.co.uk",
+    "confidence": 0.7,
+    "source": [
+      "regex",
+      "fallback"
+    ]
+  },
+  "contact_phone": {
+    "value": "020 7372 4106",
+    "confidence": 0.6,
+    "source": [
+      "regex",
+      "fallback"
+    ]
+  },
+  "sales_phone": {
+    "value": "020 7372 4106",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "fax": {
+    "value": "Not Available",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "mobile": {
+    "value": "Not Available",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "other_numbers": {
+    "value": "020 7372 4106",
+    "confidence": 0.4,
+    "source": [
+      "regex"
+    ]
+  },
+  "contact_page": {
+    "value": "https://correct-group.co.uk/contact",
+    "confidence": 0.6,
+    "source": [
+      "heuristic"
+    ]
+  },
+  "hours_of_operation": {
+    "value": "Business Hours",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "hq_indicator": {
+    "value": "Yes",
+    "confidence": 0.6,
+    "source": [
+      "default"
+    ]
+  },
+  "tech_stack_signals": {
+    "value": [
+      "WordPress",
+      "Bootstrap"
+    ],
+    "confidence": 0.7,
+    "source": [
+      "html"
+    ]
+  },
+  "founded_year": {
+    "value": "2002",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "missing_fields": []
+}

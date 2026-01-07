@@ -1,0 +1,1468 @@
+<!doctype html >
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      class="">
+<head>
+    <meta charset="utf-8">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    window._currentDevice = 'desktop';
+    window.Parameters = window.Parameters || {
+        HomeUrl: 'http://www.lapis-consulting.com/',
+        AccountUUID: 'ec67f6f7a96244188e27982dd3aee63d',
+        SystemID: '1AND1_EU_PROD',
+        SiteAlias: '99e776e5cee443629d56c11963ddb328',
+        SiteType: atob('RFVEQU9ORQ=='),
+        PublicationDate: 'Sun Sep 21 11:24:05 UTC 2025',
+        ExternalUid: 'e316269d-b00b-4f2c-8366-bc4866f81117',
+        IsSiteMultilingual: false,
+        InitialPostAlias: '',
+        InitialPostPageUuid: '',
+        InitialDynamicItem: '',
+        DynamicPageInfo: {
+            isDynamicPage: false,
+            base64JsonRowData: 'null',
+        },
+        InitialPageAlias: 'home',
+        InitialPageUuid: '53a1432a650b4328b18f806f541eb44a',
+        InitialPageId: '704043776',
+        InitialEncodedPageAlias: 'aG9tZQ==',
+        InitialHeaderUuid: '6b512645771740e78fda5dde8742aaa6',
+        CurrentPageUrl: '',
+        IsCurrentHomePage: true,
+        AllowAjax: false,
+        AfterAjaxCommand: null,
+        HomeLinkText: 'Back To Home',
+        UseGalleryModule: false,
+        CurrentThemeName: 'Layout Theme',
+        ThemeVersion: '500000',
+        DefaultPageAlias: '',
+        RemoveDID: true,
+        WidgetStyleID: null,
+        IsHeaderFixed: false,
+        IsHeaderSkinny: false,
+        IsBfs: true,
+        StorePageAlias: 'null',
+        StorePagesUrls: 'e30=',
+        IsNewStore: 'false',
+        StorePath: '',
+        StoreId: 'null',
+        StoreVersion: 0,
+        StoreBaseUrl: '',
+        StoreCleanUrl: true,
+        StoreDisableScrolling: true,
+        IsStoreSuspended: false,
+        HasCustomDomain: true,
+        SimpleSite: false,
+        showCookieNotification: true,
+        cookiesNotificationMarkup: ' <div>In order to provide you with the best online experience this website uses cookies. By using our website, you agree to our use of cookies. <a href=\"\/privacy\" target=\"_blank\">More Info<\/a>.<\/div> \n',
+        translatedPageUrl: '',
+        isFastMigrationSite: false,
+        sidebarPosition: 'NA',
+        currentLanguage: 'en',
+        currentLocale: 'en-gb',
+        NavItems: '{}',
+        errors: {
+            general: 'There was an error connecting to the page.<br/> Make sure you are not offline.',
+            password: 'Incorrect name/password combination',
+            tryAgain: 'Try again'
+        },
+        NavigationAreaParams: {
+            ShowBackToHomeOnInnerPages: true,
+            NavbarSize: 4,
+            NavbarLiveHomePage: 'http://www.lapis-consulting.com/',
+            BlockContainerSelector: '.dmBody',
+            NavbarSelector: '#dmNav:has(a)',
+            SubNavbarSelector: '#subnav_main'
+        },
+        hasCustomCode: false,
+        planID: '2202',
+        customTemplateId: 'null',
+        siteTemplateId: 'null',
+        productId: 'DM_DIRECT',
+        disableTracking: false,
+        pageType: 'FROM_SCRATCH',
+        isRuntimeServer: true,
+        isInEditor: false,
+        hasNativeStore: false,
+        defaultLang: 'en-gb',
+        hamburgerMigration: null,
+        isFlexSite: false
+    };
+
+    window.Parameters.LayoutID = {};
+    window.Parameters.LayoutID[window._currentDevice] = 6;
+    window.Parameters.LayoutVariationID = {};
+    window.Parameters.LayoutVariationID[window._currentDevice] = 5;
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Injecting site-wide to the head -->
+
+
+
+
+<!-- End Injecting site-wide to the head -->
+
+<!-- Inject secured cdn script -->
+
+
+<!-- ========= Meta Tags ========= -->
+<!-- PWA settings -->
+<script>
+    function toHash(str) {
+        var hash = 5381, i = str.length;
+        while (i) {
+            hash = hash * 33 ^ str.charCodeAt(--i)
+        }
+        return hash >>> 0
+    }
+</script>
+<script>
+    (function (global) {
+    //const cacheKey = global.cacheKey;
+    const isOffline = 'onLine' in navigator && navigator.onLine === false;
+    const hasServiceWorkerSupport = 'serviceWorker' in navigator;
+    if (isOffline) {
+        console.log('offline mode');
+    }
+    if (!hasServiceWorkerSupport) {
+        console.log('service worker is not supported');
+    }
+    if (hasServiceWorkerSupport && !isOffline) {
+        window.addEventListener('load', function () {
+            const serviceWorkerPath = '/runtime-service-worker.js?v=3';
+            navigator.serviceWorker
+                .register(serviceWorkerPath, { scope: './' })
+                .then(
+                    function (registration) {
+                        // Registration was successful
+                        console.log(
+                            'ServiceWorker registration successful with scope: ',
+                            registration.scope
+                        );
+                    },
+                    function (err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    }
+                )
+                .catch(function (err) {
+                    console.log(err);
+                });
+        });
+
+        // helper function to refresh the page
+        var refreshPage = (function () {
+            var refreshing;
+            return function () {
+                if (refreshing) return;
+                // prevent multiple refreshes
+                var refreshkey = 'refreshed' + location.href;
+                var prevRefresh = localStorage.getItem(refreshkey);
+                if (prevRefresh) {
+                    localStorage.removeItem(refreshkey);
+                    if (Date.now() - prevRefresh < 30000) {
+                        return; // dont go into a refresh loop
+                    }
+                }
+                refreshing = true;
+                localStorage.setItem(refreshkey, Date.now());
+                console.log('refereshing page');
+                window.location.reload();
+            };
+        })();
+
+        function messageServiceWorker(data) {
+            return new Promise(function (resolve, reject) {
+                if (navigator.serviceWorker.controller) {
+                    var worker = navigator.serviceWorker.controller;
+                    var messageChannel = new MessageChannel();
+                    messageChannel.port1.onmessage = replyHandler;
+                    worker.postMessage(data, [messageChannel.port2]);
+                    function replyHandler(event) {
+                        resolve(event.data);
+                    }
+                } else {
+                    resolve();
+                }
+            });
+        }
+    }
+})(window);
+</script>
+<!-- Add manifest -->
+<!-- End PWA settings -->
+
+
+
+<link rel="canonical" href="https://www.lapis-consulting.com/">
+
+<meta id="view" name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Home
+</title>
+
+<!--Add favorites icons-->
+
+<link rel="icon" type="image/x-icon" href="https://static-cdn.website-editor.net/runtime/favicon_d1_res.ico"/>
+
+<!-- End favorite icons -->
+<link rel="preconnect" href="https://le-cdn.website-editor.net/"/>
+
+
+
+<!-- render the required CSS and JS in the head section -->
+<script id='d-js-dmapi'>
+    window.SystemID = '1AND1_EU_PROD';
+
+    if (!window.dmAPI) {
+        window.dmAPI = {
+            registerExternalRuntimeComponent: function () {
+            },
+            getCurrentDeviceType: function () {
+                return window._currentDevice;
+            },
+            runOnReady: (ns, fn) => {
+                const safeFn = dmAPI.toSafeFn(fn);
+                ns = ns || 'global_' + Math.random().toString(36).slice(2, 11);
+                const eventName = 'afterAjax.' + ns;
+
+                if (document.readyState === 'complete') {
+                    $.DM.events.off(eventName).on(eventName, safeFn);
+                    setTimeout(function () {
+                        safeFn({
+                            isAjax: false,
+                        });
+                    }, 0);
+                } else {
+                    window?.waitForDeferred?.('dmAjax', () => {
+                        $.DM.events.off(eventName).on(eventName, safeFn);
+                        safeFn({
+                            isAjax: false,
+                        });
+                    });
+                }
+            },
+            toSafeFn: (fn) => {
+                if (fn?.safe) {
+                    return fn;
+                }
+                const safeFn = function (...args) {
+                    try {
+                        return fn?.apply(null, args);
+                    } catch (e) {
+                        console.log('function failed ' + e.message);
+                    }
+                };
+                safeFn.safe = true;
+                return safeFn;
+            }
+        };
+    }
+
+    if (!window.requestIdleCallback) {
+        window.requestIdleCallback = function (fn) {
+            setTimeout(fn, 0);
+        }
+    }
+</script>
+
+<!-- loadCSS function header.jsp-->
+
+
+
+
+
+
+<script id="d-js-load-css">
+/**
+ * There are a few <link> tags with CSS resource in them that are preloaded in the page
+ * in each of those there is a "onload" handler which invokes the loadCSS callback
+ * defined here.
+ * We are monitoring 3 main CSS files - the runtime, the global and the page.
+ * When each load we check to see if we can append them all in a batch. If threre
+ * is no page css (which may happen on inner pages) then we do not wait for it
+ */
+(function () {
+  let cssLinks = {};
+  function loadCssLink(link) {
+    link.onload = null;
+    link.rel = "stylesheet";
+    link.type = "text/css";
+  }
+  
+    function checkCss() {
+      const pageCssLink = document.querySelector("[id*='CssLink']");
+      const widgetCssLink = document.querySelector("[id*='widgetCSS']");
+
+        if (cssLinks && cssLinks.runtime && cssLinks.global && (!pageCssLink || cssLinks.page) && (!widgetCssLink || cssLinks.widget)) {
+            const storedRuntimeCssLink = cssLinks.runtime;
+            const storedPageCssLink = cssLinks.page;
+            const storedGlobalCssLink = cssLinks.global;
+            const storedWidgetCssLink = cssLinks.widget;
+
+            storedGlobalCssLink.disabled = true;
+            loadCssLink(storedGlobalCssLink);
+
+            if (storedPageCssLink) {
+                storedPageCssLink.disabled = true;
+                loadCssLink(storedPageCssLink);
+            }
+
+            if(storedWidgetCssLink) {
+                storedWidgetCssLink.disabled = true;
+                loadCssLink(storedWidgetCssLink);
+            }
+
+            storedRuntimeCssLink.disabled = true;
+            loadCssLink(storedRuntimeCssLink);
+
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    storedRuntimeCssLink.disabled = false;
+                    storedGlobalCssLink.disabled = false;
+                    if (storedPageCssLink) {
+                      storedPageCssLink.disabled = false;
+                    }
+                    if (storedWidgetCssLink) {
+                      storedWidgetCssLink.disabled = false;
+                    }
+                    // (SUP-4179) Clear the accumulated cssLinks only when we're
+                    // sure that the document has finished loading and the document 
+                    // has been parsed.
+                    if(document.readyState === 'interactive') {
+                      cssLinks = null;
+                    }
+                }, 0);
+            });
+        }
+    }
+  
+
+  function loadCSS(link) {
+    try {
+      var urlParams = new URLSearchParams(window.location.search);
+      var noCSS = !!urlParams.get("nocss");
+      var cssTimeout = urlParams.get("cssTimeout") || 0;
+
+      if (noCSS) {
+        return;
+      }
+      if (link.href && link.href.includes("d-css-runtime")) {
+        cssLinks.runtime = link;
+        checkCss();
+      } else if (link.id === "siteGlobalCss") {
+        cssLinks.global = link;
+        checkCss();
+      } 
+      
+      else if (link.id && link.id.includes("CssLink")) {
+        cssLinks.page = link;
+        checkCss();
+      } else if (link.id && link.id.includes("widgetCSS")) {
+        cssLinks.widget = link;
+        checkCss();
+      }
+      
+      else {
+        requestIdleCallback(function () {
+          window.setTimeout(function () {
+            loadCssLink(link);
+          }, parseInt(cssTimeout, 10));
+        });
+      }
+    } catch (e) {
+      throw e
+    }
+  }
+  window.loadCSS = window.loadCSS || loadCSS;
+})();
+</script>
+
+
+
+<script data-role="deferred-init" type="text/javascript">
+    /* usage: window.getDeferred(<deferred name>).resolve() or window.getDeferred(<deferred name>).promise.then(...)*/
+    function Def() {
+        this.promise = new Promise((function (a, b) {
+            this.resolve = a, this.reject = b
+        }).bind(this))
+    }
+
+    const defs = {};
+    window.getDeferred = function (a) {
+        return null == defs[a] && (defs[a] = new Def), defs[a]
+    }
+    window.waitForDeferred = function (b, a, c) {
+        let d = window?.getDeferred?.(b);
+        d
+            ? d.promise.then(a)
+            : c && ["complete", "interactive"].includes(document.readyState)
+                ? setTimeout(a, 1)
+                : c
+                    ? document.addEventListener("DOMContentLoaded", a)
+                    : console.error(`Deferred  does not exist`);
+    };
+</script>
+<style id="forceCssIncludes">
+    /* This file is auto-generated from a `scss` file with the same name */
+
+.videobgwrapper{overflow:hidden;position:absolute;z-index:0;width:100%;height:100%;top:0;left:0;pointer-events:none;border-radius:inherit}.videobgframe{position:absolute;width:101%;height:100%;top:50%;left:50%;transform:translateY(-50%) translateX(-50%);object-fit:fill}#dm video.videobgframe{margin:0}@media (max-width:767px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:80vh}}@media (min-width:1025px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}@media (min-width:768px) and (max-width:1024px){.responsiveTablet .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}#dm [data-show-on-page-only]{display:none!important}#dmRoot div.stickyHeaderFix div.site_content{margin-top:0!important}#dmRoot div.stickyHeaderFix div.hamburger-header-container{position:relative}
+    
+
+</style>
+<style id="cssVariables" type="text/css">
+    
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Google Fonts Include -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- loadCSS function fonts.jsp-->
+
+
+
+<link type="text/css" rel="stylesheet" href="https://cdn.website-editor.net/fonts/css2?family=Raleway:wght@100..900&family=Be+Vietnam:wght@100;200;300;400;600;700;800;900&family=Work+Sans:wght@100..900&family=Exo+2:wght@100..900&family=Alegreya:wght@400..900&family=Lato:wght@100;300;400;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Cabin:wght@400..700&family=Libre+Baskerville:wght@400;700&family=Source+Sans+Pro:wght@200;300;400;600;700;900&amp;subset=latin-ext&amp;display=swap"  />
+
+
+
+
+
+<!-- RT CSS Include d-css-runtime-desktop-one-package-structured-global-->
+<link rel="stylesheet" type="text/css" href="https://static-cdn.website-editor.net/mnlt/production/6010/_dm/s/rt/dist/css/d-css-runtime-desktop-one-package-structured-global.min.css" />
+
+<!-- End of RT CSS Include -->
+
+<link type="text/css" rel="stylesheet" href="https://cdn.website-editor.net/WIDGET_CSS/82642da7351744916383a23454d484fb.css" id="widgetCSS" />
+
+<!-- Support `img` size attributes -->
+<style>img[width][height] {
+  height: auto;
+}</style>
+
+<!-- Support showing sticky element on page only -->
+<style>
+  body[data-page-alias="home"] #dm [data-show-on-page-only="home"] {
+    display: block !important;
+  }
+</style>
+
+<!-- This is populated in Ajax navigation -->
+<style id="pageAdditionalWidgetsCss" type="text/css">
+</style>
+
+
+
+
+<!-- Site CSS -->
+<link type="text/css" rel="stylesheet" href="https://cdn.website-editor.net/s/99e776e5cee443629d56c11963ddb328/files/99e776e5cee443629d56c11963ddb328_withFlex_1.min.css?v=52&Expires=1768289662&Signature=Zhwh~2Q2t7YLZOZzDqA1-ZU~KMCDKlRpE46LAp8sZfP3~ErmXvbSY0diiHHvfy4MadOZpXm1m-sP7KWcLn3MciVFO8L0dPe2K11TMp8Xry2dbd-dsFOx7HpC54ikzDyVikUAVsQmP2vHw~FxjeU3KS-YEDqmmnGseg0eqCh2lv~SUoT3CexK9Ltdq3i34-NZoChLcJj-LrRNkg9-WMc~hQmwRlpzbz0Ar0r6hfM0jWK92TwujyNFOMBISZ8pgE3hKMLhkjN1BM~0vROJhgJ1t~Mx89Sg57xWSk7nBHPWN9SIF5z46LF0Qylg~Kuz-0UH8lQhpsPN~6YZezKmEhUW5g__&Key-Pair-Id=K2NXBXLF010TJW" id="siteGlobalCss" />
+
+
+<!-- additional css file per platform -->
+<link
+        type="text/css" rel="stylesheet"
+        href="/_dm/s/rt/css/oneUndOne/1and1-runtime.css?version=2025-12-11T14_05_31"
+/>
+
+
+<style id="customWidgetStyle" type="text/css">
+    
+</style>
+<style id="innerPagesStyle" type="text/css">
+    
+</style>
+
+
+<style
+        id="additionalGlobalCss" type="text/css"
+>
+</style>
+
+<!-- Page CSS -->
+<link type="text/css" rel="stylesheet" href="https://cdn.website-editor.net/s/99e776e5cee443629d56c11963ddb328/files/99e776e5cee443629d56c11963ddb328_home_withFlex_1.min.css?v=52&Expires=1768289662&Signature=qcPWBnuxR0MuqJNSjraPmsTOYaik0lKwRWIqAgM-WxtD~s9LRUL50BuRyhGp7SWlhtjOCtNdH-uYlWJo9wdJOsDSruxCn~sSqJmx0y6iFWzeJXTXwCb22~RPiQhNwBLC7pauge3LIxgOVAQc405HIhq5-dwfxqNi~blw1EUKacL1rugh4mqm-4wmIgdrdv-oYWA-FRcOLbjcBg6a1305K5aS5WdurXcCLdPfzAbrE2mqRZ8PuN4iyrk6T3~s1Iw5dhimMJ31qrS8paALJxQYzVzwBSQFTyeeKifMOAWf3BI6n7KvaaESKRYritlN7WW2ROHT7Pim955xqL5yxAIFGw__&Key-Pair-Id=K2NXBXLF010TJW" id="homeCssLink" />
+
+<style id="pagestyle" type="text/css">
+    
+</style>
+
+<style id="pagestyleDevice" type="text/css">
+    
+</style>
+
+<!-- Flex Sections CSS -->
+
+
+
+
+
+<style id="globalFontSizeStyle" type="text/css">
+    .font-size-50, .size-50, .size-50 > font { font-size: 50px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-36, .size-36, .size-36 > font { font-size: 36px !important; }.font-size-18, .size-18, .size-18 > font { font-size: 18px !important; }.font-size-32, .size-32, .size-32 > font { font-size: 32px !important; }.font-size-12, .size-12, .size-12 > font { font-size: 12px !important; }
+</style>
+<style id="pageFontSizeStyle" type="text/css">
+</style>
+
+
+
+
+<style id="hideAnimFix">
+  .dmDesktopBody:not(.editGrid) [data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) [data-anim-extended] {
+    visibility: hidden;
+  }
+
+  .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-extended] {
+    visibility: hidden !important;
+  }
+
+
+  #dmRoot:not(.editGrid) .flex-element [data-anim-extended] {
+    visibility: hidden;
+  }
+
+</style>
+
+
+
+
+<style id="fontFallbacks">
+    @font-face {
+  font-family: "Raleway Fallback";
+  src: local('Arial');
+  ascent-override: 89.616%;
+  descent-override: 22.3087%;
+  size-adjust: 104.892%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Work Sans Fallback";
+  src: local('Arial');
+  ascent-override: 82.1016%;
+  descent-override: 21.4523%;
+  size-adjust: 113.2743%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Helvetica Fallback";
+  src: local('Arial');
+  ascent-override: 77.002%;
+  descent-override: 22.998%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Exo 2 Fallback";
+  src: local('Arial');
+  ascent-override: 97.1288%;
+  descent-override: 19.5424%;
+  size-adjust: 102.8531%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Alegreya Fallback";
+  src: local('Arial');
+  ascent-override: 111.0071%;
+  descent-override: 37.6943%;
+  size-adjust: 91.5257%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Lato Fallback";
+  src: local('Arial');
+  ascent-override: 101.3181%;
+  descent-override: 21.865%;
+  size-adjust: 97.4159%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Poppins Fallback";
+  src: local('Arial');
+  ascent-override: 92.326%;
+  descent-override: 30.7753%;
+  line-gap-override: 8.793%;
+  size-adjust: 113.7274%;
+}@font-face {
+  font-family: "Cabin Fallback";
+  src: local('Arial');
+  ascent-override: 101.7818%;
+  descent-override: 26.3684%;
+  size-adjust: 94.8106%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Libre Baskerville Fallback";
+  src: local('Arial');
+  ascent-override: 83.6258%;
+  descent-override: 23.2773%;
+  size-adjust: 115.9929%;
+  line-gap-override: 0%;
+ }
+</style>
+
+
+<!-- End render the required css and JS in the head section -->
+
+
+
+
+
+
+
+
+
+  <link type="application/rss+xml" rel="alternate" href="https://www.lapis-consulting.com/feed/rss2"/>
+  <link type="application/atom+xml" rel="alternate" href="https://www.lapis-consulting.com/feed/atom"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.lapis-consulting.com/"/>
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+
+<!-- SYS- MUFORDFfRVVfUFJPRA== -->
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body id="dmRoot" data-page-alias="home"  class="dmRoot dmDesktopBody fix-mobile-scrolling addCanvasBorder dmResellerSite mac safariFix dmLargeBody responsiveTablet "
+      style="padding:0;margin:0;"
+      
+    >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========= Site Content ========= -->
+<div id="dm" class='dmwr'>
+    
+    <div class="dm_wrapper standard-var5 widgetStyle-3 standard">
+         <div dmwrapped="true" id="1901957768" class="dm-home-page" themewaschanged="true"> <div dmtemplateid="StandardLayoutMultiD" class="standardHeaderLayout dm-bfs dm-layout-home hasAnimations inMiniHeaderMode hasStickyHeader hasStickyHeader dmPageBody d-page-1716942098 inputs-css-clean dmFreeHeader" id="dm-outer-wrapper" data-page-class="1716942098" data-soch="true" data-background-parallax-selector=".dmHomeSection1, .dmSectionParallex"> <div id="dmStyle_outerContainer" class="dmOuter"> <div id="dmStyle_innerContainer" class="dmInner"> <div class="dmLayoutWrapper standard-var dmStandardDesktop"> <div> <div id="iscrollBody"> <div id="site_content"> <div class="dmHeaderContainer fHeader d-header-wrapper"> <div id="hcontainer" class="dmHeader p_hfcontainer u_hcontainer" freeheader="true" layout="7621f7e0002549258c16efb7610abc8f===header" data-scrollable-target="body" data-scrollable-target-threshold="1" data-scroll-responder-id="1" logo-size-target="66%"> <div dm:templateorder="85" class="dmHeaderResp dmHeaderStack noSwitch" id="1709005236"> <div class="u_1987879701 dmRespRow dmDefaultListContentRow fullBleedChanged fullBleedMode" style="text-align:center" id="1987879701"> <div class="dmRespColsWrapper" id="1928088227"> <div class="u_1673869911 small-12 dmRespCol large-2 medium-2" id="1673869911"> <a data-display-type="block" class="u_1733727656 align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient flexButton" file="false" href="/contact-us" data-element-type="dButtonLinkId" id="1733727656"> <span class="iconBg" aria-hidden="true" id="1110166309"> <span class="icon hasFontIcon icon-star" id="1351291418"></span> 
+</span> 
+ <span class="text" id="1498522825">Get in touch</span> 
+</a> 
+</div> 
+ <div class="u_1267840049 dmRespCol small-12 large-8 medium-8" id="1267840049"> <nav class="u_1789768745 effect-bottom2 main-navigation unifiednav dmLinksMenu" role="navigation" layout-main="horizontal_nav_layout_1" layout-sub="submenu_horizontal_1" data-show-vertical-sub-items="HOVER" id="1789768745" dmle_extension="onelinksmenu" data-element-type="onelinksmenu" data-logo-src="https://cdn.website-editor.net/s/99e776e5cee443629d56c11963ddb328/dms3rep/multi/IMG_1030.jpg" alt="" data-nav-structure="SPLIT" wr="true" icon="true" surround="true" adwords="" navigation-id="unifiedNav"> <ul role="menubar" class="unifiednav__container left_nav " data-auto="navigation-pages"> <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/" class="unifiednav__item  dmNavItemSelected  dmUDNavigationItem_010101938868  " target="" data-target-page-alias="" aria-current="page" data-auto="selected-page"> <span class="nav-item-text " data-link-text="
+         Home
+        " data-auto="page-text-style">Home<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" aria-haspopup="true" data-sub-nav-menu="true" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/our-services" class="unifiednav__item  dmUDNavigationItem_01010124723  unifiednav__item_has-sub-nav" target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Our services
+        " data-auto="page-text-style">Our services<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+ <ul role="menu" aria-expanded="false" class="unifiednav__container unifiednav__container_sub-nav" data-depth="0" data-auto="sub-pages"> <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/service_management" class="unifiednav__item  dmUDNavigationItem_010101558809  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+           Service Management
+          " data-auto="page-text-style">Service Management<span class="icon icon-angle-right"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/strategy-digital-transformation" class="unifiednav__item  dmUDNavigationItem_010101421683  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+           Strategy & Digital Transformation
+          " data-auto="page-text-style">Strategy &amp; Digital Transformation<span class="icon icon-angle-right"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/operating-models" class="unifiednav__item  dmUDNavigationItem_010101697764  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+           Operating Models
+          " data-auto="page-text-style">Operating Models<span class="icon icon-angle-right"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/leadership-mentoring" class="unifiednav__item  dmUDNavigationItem_01010128996  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+           Leadership & Mentoring
+          " data-auto="page-text-style">Leadership &amp; Mentoring<span class="icon icon-angle-right"></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/publications-media" class="unifiednav__item  dmUDNavigationItem_010101778843  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Publications & Media
+        " data-auto="page-text-style">Publications &amp; Media<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+ <a class="middleLogoLink" href="/home"><img class="navLogo" id="navLogo" src="https://le-cdn.website-editor.net/s/99e776e5cee443629d56c11963ddb328/dms3rep/multi/opt/IMG_1030-1920w.jpg?Expires=1768289662&Signature=LcsunnP70fYlqIUm~Lxo-fmkv2SVOt6vu6Fn~E16bu1QqR74fQwbM-XoOtFJ1HPnASPcIipFm2O7ePckWv6Yp0KNPQWEc4gwVbGY2sCCKEIHi5CX6Dd8JBfjdDIXAkEmuqUGzq0DGYsTTxeZy3Ls6kIfamoQOyJV6AKqMUseFJEJbnAXdbxXt5ijRAODl16XvA6ZDc8Zm4DVQ9EbVFaSJoVl5p-MeyNLb7-a6UV6ORSyLJsyBplu~P0h5MPzWVZoGTrFAcLrRUekzfbDPP7GGd9ryGTE8BP2GtnKbbqrFFT-oW7hKhLKVOyz85o0DdxwViEnNdGlnyBLjpaQIfOfwA__&Key-Pair-Id=K2NXBXLF010TJW" alt="" onerror="handleImageLoadError(this)"/></a> 
+ <ul role="menubar" class="unifiednav__container right_nav "> <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/about" class="unifiednav__item  dmUDNavigationItem_01010122923  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         About
+        " data-auto="page-text-style">About<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/contact-us" class="unifiednav__item  dmUDNavigationItem_010101358825  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Contact
+        " data-auto="page-text-style">Contact<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</nav> 
+</div> 
+ <div class="u_1066403714 dmRespCol small-12 large-2 medium-2" id="1066403714"> <div class="u_1959822447 align-center text-align-center dmSocialHub gapSpacing" id="1959822447" dmle_extension="social_hub" data-element-type="social_hub" wr="true" networks="" icon="true" surround="true" adwords=""> <div class="socialHubWrapper"> <div class="socialHubInnerDiv "> <a href="mailto:info@lapis-consulting.com" dm_dont_rewrite_url="true" aria-label="email" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event(&apos;socialLink&apos;, &apos;click&apos;, &apos;Email&apos;)"> <span class="dmSocialEmail dm-social-icons-email oneIcon socialHubIcon style6" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+ <a href="https://www.linkedin.com/company/lapis-consulting-services-ltd" target="_blank" dm_dont_rewrite_url="true" aria-label="linkedin" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event(&apos;socialLink&apos;, &apos;click&apos;, &apos;Linkedin&apos;)"> <span class="dmSocialLinkedin icon-linkedin oneIcon socialHubIcon style6" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+ <a href="https://www.instagram.com/lapisconsultingservices/" target="_blank" dm_dont_rewrite_url="true" aria-label="instagram" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event(&apos;socialLink&apos;, &apos;click&apos;, &apos;Instagram&apos;)"> <span class="dmSocialInstagram dm-social-icons-instagram oneIcon socialHubIcon style6" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+ <a href="https://twitter.com/" target="_blank" dm_dont_rewrite_url="true" aria-label="twitter" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event(&apos;socialLink&apos;, &apos;click&apos;, &apos;Twitter&apos;)"> <span class="dmSocialTwitter dm-social-icons-twitter oneIcon socialHubIcon style6" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="stickyHeaderSpacer" id="stickyHeaderSpacer" data-new="true"></div> 
+ <div class="dmRespRow dmRespRowStable dmRespRowNoPadding dmPageTitleRow "> <div class="dmRespColsWrapper"> <div class="large-12 dmRespCol"> <div id="innerBar" class="innerBar lineInnerBar dmDisplay_None"> <div class="titleLine display_None"><hr/></div> 
+<!-- Page title is hidden in css for new responsive sites. It is left here only so we don't break old sites. Don't copy it to new layouts --> <div id="pageTitleText"></div> 
+ <div class="titleLine display_None"><hr/></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div dmwrapped="true" id="dmFirstContainer" class="dmBody u_dmStyle_template_home dm-home-page" themewaschanged="true"> <div id="allWrapper" class="allWrapper"><!-- navigation placeholders --> <div id="dm_content" class="dmContent" role="main"> <div dm:templateorder="170" class="dmHomeRespTmpl mainBorder dmRespRowsWrapper dmFullRowRespTmpl" id="1716942098"> <div class="u_1662811305 dmRespRow dmSectionNoParallax" style="text-align: center;" id="1662811305" data-gallery-bg="eyJzbGlkZXMiOlsiaHR0cHM6Ly9sZS1jZG4ud2Vic2l0ZS1lZGl0b3IubmV0L3MvOTllNzc2ZTVjZWU0NDM2MjlkNTZjMTE5NjNkZGIzMjgvZG1zM3JlcC9tdWx0aS9vcHQvSU1HXzU5MzktMTkyMHcuanBnP0V4cGlyZXM9MTc2ODI4OTY2MiZTaWduYXR1cmU9SlgzTVdHMkxBN2xFZ2R4bS1GaDZ2dHNyMndKd0Z3ZlV6N2wzeH44NEFBb1RhTnhPQk1Tbmx+TlA5Qm90NUVoZ3c2M044VXc1ODRoZGdldEVQZW5vQldXVlZVbFgwd3hqNE90fm55UmNrWjI3SGJsSnZaVXk2flJ2TXBiWWVIUmRBc34wNHdYSmxoVVktSFVKREdteU8wd1YxYXl1ZnBtRFkwUHdxbVViTlp6eXJ2bjdJcW1IWGRPR1IyRUxiMXhFMkNEQmZPb3Ftcjgwdjk3WEh4aHRWOTJqTG5hQmNzZWhVOHFXV1YzUmM0cnRlfklDaXhYR1ZDSVpYYjNpV20xTUc5V3E4czhSRzdUZzlUSVlsVmpDUmNtc1IwR3YtazcybmZJTnVuTDVYLXVaZjJ1enVRfnZhaFhuRzdNVDhmUFF5Y2xPUkhtdFZDU0ZzR3gwNjAxdXhBX18mS2V5LVBhaXItSWQ9SzJOWEJYTEYwMTBUSlciXSwic3BlZWQiOiIzIiwidHJhbnNpdGlvbiI6InNsaWRlUmlnaHQifQ==" mode="1"> <div class="dmRespColsWrapper" id="1174015445"> <div class="u_1856929711 dmRespCol small-12 medium-12 large-12" id="1856929711"> <div class="u_1834347239 dmRespRow" id="1834347239"> <div class="dmRespColsWrapper" id="1992962810"> <div class="dmRespCol small-12 medium-12 large-12" id="1385584469"> <div class="u_1213783168 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1213783168" data-anim-extended="eyJkZXNrdG9wIjp7InRyaWdnZXIiOiJub25lIiwiYW5pbWF0aW9uIjpudWxsfX0="><img src="https://le-cdn.website-editor.net/s/99e776e5cee443629d56c11963ddb328/dms3rep/multi/opt/Lapis+Consulting-1920w.png?Expires=1768289662&Signature=r0pmmR8z5aAD2myQmdmqI9c8X1WWiurGfmXOf9Pgw7aybgoH7octG2txvh55GQCnjoTqloH18iPogTvXK~iipI5~0kOcwMMS45xhBb1vRCy6sxdN3SAf7t~3DI8nu6ciEk6StIUNToNGWZhsSjKCdxNrIh9rVtP5CYG-gF3vPCil8~8JqmXImZqBQ4CAx7l74J0o81dziypOMyEA5cb1BjOcaseS2qzuqnBLrl69CN6jD5EQJLzRKa48iZSJIxJhp3-a3wnMniPwVY5tvKvZiiWi1snA-y0wIyUOUQ8-ujEyIgR2BmQMzOCPjpIESCyYIIsTJy6~SnCJTwjYl~JXxw__&Key-Pair-Id=K2NXBXLF010TJW" alt="" id="1664211002" class="" width="500" height="500" data-dm-image-path="https://cdn.website-editor.net/s/99e776e5cee443629d56c11963ddb328/dms3rep/multi/Lapis+Consulting.png" onerror="handleImageLoadError(this)"/></div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1349927436 dmRespRow" id="1349927436"> <div class="dmRespColsWrapper" id="1599217493"> <div class="dmRespCol small-12 medium-12 large-12" id="1306971871"> <div class="u_1604465861 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1604465861" style="" data-styletopreserve="{"background-image":""}" data-dashlane-rid="75ae8cf6400115b9" data-dashlane-classification="identity"> <h1 class="m-size-40 text-align-center size-50" style="letter-spacing: 0.04em;"><span style="text-transform:none;color:rgb(255, 255, 255);display:unset;font-family:'Libre Baskerville', 'Libre Baskerville Fallback';" class="m-font-size-40 font-size-50">Lapis Consulting Services</span></h1> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow u_1390125340" id="1390125340"> <div class="dmRespColsWrapper" id="1437194437"> <div class="dmRespCol small-12 medium-12 large-12" id="1821654077"> <div class="u_1485494185 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1485494185" style="transition: none; text-align: left; display: block;" data-dashlane-rid="cf845d2013155145" data-dashlane-classification="identity"><p class="m-size-16 text-align-center size-20" style="letter-spacing: 0.07em;"><span class="font-size-20 m-font-size-16" style="text-transform:none;color:rgb(246, 247, 248);font-weight:600;display:unset;font-family:Raleway, 'Raleway Fallback';"><span style="text-transform:none;color:rgb(246, 247, 248);font-weight:600;display:unset;font-family:Raleway, 'Raleway Fallback';" class="font-size-20 m-font-size-16">We provide a wide range of professional consultancy services customised to deliver the maximum value to our clients.</span> 
+</span></p><p style="letter-spacing: 0.07em;" class="text-align-center"><br/></p><p class="m-size-16 text-align-center size-20" style="letter-spacing: 0.07em;"><span style="text-transform:none;color:rgb(246, 247, 248);font-weight:600;display:unset;font-family:Raleway, 'Raleway Fallback';" class="font-size-20 m-font-size-16">We don't do &quot;out of the box&quot; or &quot;cookie cutter&quot; services. We provide tailored, bespoke consultancy services that meet YOUR needs.</span></p></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1941417359 dmRespRow fullBleedChanged fullBleedMode" style="text-align: center;" id="1941417359"> <div class="dmRespColsWrapper" id="1215094190"> <div class="u_1683190946 dmRespCol small-12 medium-12 large-12" id="1683190946" data-anim-desktop="none"> <span id="1464799156"></span> 
+ <div class="u_1523049134 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1523049134" style="transition: opacity 1s ease-in-out 0s;" data-dashlane-rid="1db42ad5383969fb" data-dashlane-classification="identity"> <h2 class="m-size-29 text-align-center size-36"><span style="color:rgb(57, 69, 85);font-weight:normal;display:unset;font-family:'Libre Baskerville', 'Libre Baskerville Fallback';" class="m-font-size-29 font-size-36">Our services</span></h2> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow u_1395022250 fullBleedChanged fullBleedMode" id="1395022250"> <div class="dmRespColsWrapper" id="1542645161"> <div class="dmRespCol large-12 medium-12 small-12" id="1140975093"> <div class="dmNewParagraph u_1825120359" data-element-type="paragraph" data-version="5" id="1825120359" style="transition: none; text-align: left; display: block;" data-dashlane-rid="d683d0a69b0c119b" data-dashlane-classification="identity"><p class="text-align-center size-18 m-size-14"><span class="font-size-18 m-font-size-14" style="color:rgb(57, 69, 85);display:unset;font-family:Raleway, 'Raleway Fallback';"><span style="color:rgb(57, 69, 85);display:unset;font-family:Raleway, 'Raleway Fallback';" class="font-size-18 m-font-size-14">At</span> 
+</span><strong style="color:rgb(57, 69, 85);display:unset;font-family:Raleway, 'Raleway Fallback';" class="font-size-18 m-font-size-14">Lapis Consulting</strong><span style="color:rgb(57, 69, 85);display:unset;font-family:Raleway, 'Raleway Fallback';" class="font-size-18 m-font-size-14">, we provide strategic IT service management consultancy tailored to the evolving needs of modern organisations. Our services span operational design, leadership support, and transformation delivery &mdash; all rooted in ITIL-certified expertise.</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow fullBleedChanged fullBleedMode u_1837164703" id="1837164703"> <div class="dmRespColsWrapper" id="1745244235"> <div class="dmRespCol small-12 large-6 medium-6" id="1513502350"> <div class="u_1438382061 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1438382061" style="transition: none; text-align: left; display: block;" data-dashlane-rid="ef815eea72bda695" data-dashlane-classification="identity"><p class="m-size-15"><strong style="font-weight:bold;display:initial;font-family:Raleway, 'Raleway Fallback';" class="m-font-size-15" m-font-size-set="true">ITIL Practice Assessment &amp; Maturity Review</strong></p><p class="m-size-15"><span style="display:initial;font-family:Raleway, 'Raleway Fallback';" class="m-font-size-15" m-font-size-set="true">We evaluate your current ITIL practices to identify strengths, gaps, and opportunities for improvement. Our practical, actionable insights help you streamline operations, increase process maturity, and deliver more value from your IT services.</span></p><p><span style="display: initial;"><br/></span></p><p class="m-size-15"><strong style="font-weight:bold;display:initial;font-family:Raleway, 'Raleway Fallback';" class="m-font-size-15" m-font-size-set="true">Tailored Service Management Frameworks</strong></p><p class="m-size-15"><span style="display:initial;font-family:Raleway, 'Raleway Fallback';" class="m-font-size-15" m-font-size-set="true">We design and implement customised service management frameworks aligned to your organisation&rsquo;s unique goals and needs. These frameworks promote high-quality service delivery, optimise risk, and ensure stakeholder value is consistently achieved.</span></p><p><span style="display: initial;"><br/></span></p><p class="m-size-15"><strong style="font-weight:bold;display:initial;font-family:Raleway, 'Raleway Fallback';" class="m-font-size-15" m-font-size-set="true">Strategic IT Planning</strong></p><p class="m-size-15"><span style="display:initial;font-family:Raleway, 'Raleway Fallback';" class="m-font-size-15" m-font-size-set="true">We work with you to define your organisation&rsquo;s mission, vision, and service objectives. This strategic clarity enables effective planning and positions your organisation for long-term success in a rapidly evolving digital landscape.</span></p><p><span style="display: initial;"><br/></span></p><p class="m-size-15"><strong style="font-weight:bold;display:initial;font-family:Raleway, 'Raleway Fallback';" class="m-font-size-15" m-font-size-set="true">Digital Transformation &amp; Value Realisation</strong></p><p class="m-size-15 text-align-justify" style="letter-spacing: 0.02em;"><span style="display:initial;font-family:Raleway, 'Raleway Fallback';" class="m-font-size-15" m-font-size-set="true">We provide hands-on support throughout your digital transformation journey &mdash; helping you unlock benefits, improve service outcomes, and co-create value with your stakeholders.</span><span style="display: initial;"><br/></span></p></div> 
+</div> 
+ <div class="dmRespCol large-6 medium-6 small-12" id="1738060479"> <div class="u_1231326165 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1231326165" style="transition: opacity 1s ease-in-out;" data-dashlane-rid="9ac7e6d05c385842"> <h4><span style="color:rgb(57, 69, 85);display:initial;font-family:Raleway, 'Raleway Fallback';">Operating Model Review &amp; Design</span></h4> 
+<p><span style="color:rgb(57, 69, 85);display:initial;font-family:Raleway, 'Raleway Fallback';">We assess your current IT or service operating model and work with you to redesign it for optimal performance, agility, and alignment with business goals. Our approach ensures the right capabilities, roles, and processes are in place to support sustainable growth and digital transformation.</span></p><p><span style="color:rgb(57, 69, 85);display:initial;font-family:Raleway, 'Raleway Fallback';"><br/></span></p><p><strong style="color:rgb(57, 69, 85);font-weight:bold;display:initial;font-family:Raleway, 'Raleway Fallback';">Talent Management</strong></p><p><span style="color:rgb(57, 69, 85);display:initial;font-family:Raleway, 'Raleway Fallback';">We support organisations in identifying, developing, and retaining high-performing IT and service management professionals. From role design to capability assessments, we help you build a skilled, resilient workforce aligned with your strategic goals.</span></p><p><span style="color:rgb(57, 69, 85);display:initial;font-family:Raleway, 'Raleway Fallback';"><br/></span></p><p><strong style="color:rgb(57, 69, 85);font-weight:bold;display:initial;font-family:Raleway, 'Raleway Fallback';">Interim Leadership</strong></p><p><span style="color:rgb(57, 69, 85);display:initial;font-family:Raleway, 'Raleway Fallback';">Need experienced leadership during times of change or transition? We provide interim service management and IT leadership to ensure continuity, stability, and progress. Our hands-on approach allows us to quickly embed within your teams, deliver results, and lay the groundwork for long-term success.</span></p><p><span style="color:rgb(57, 69, 85);display:initial;font-family:Raleway, 'Raleway Fallback';"><br/></span></p><p><strong style="color:rgb(57, 69, 85);font-weight:bold;display:initial;font-family:Raleway, 'Raleway Fallback';">Mentoring &amp; Capability Building</strong></p><p class="text-align-justify" style="letter-spacing: 0.02em;"><span style="color:rgb(57, 69, 85);display:initial;font-family:Raleway, 'Raleway Fallback';">We offer mentoring and coaching for IT and service management professionals at all levels. Whether you're nurturing future leaders or strengthening your current team, our tailored mentoring programs enhance confidence, competence, and career growth&mdash;building capability from the inside out.</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow u_1579792133 fullBleedChanged fullBleedMode" id="1579792133"> <div class="dmRespColsWrapper" id="1288834870"> <div class="dmRespCol small-12 large-3 medium-3" id="1356435600"> <div class="u_1627505049 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1627505049" data-anim-extended="eyJkZXNrdG9wIjp7InRyaWdnZXIiOiJlbnRyYW5jZSJ9fQ==" data-anim-desktop="none"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 70 70" id="1904414406" class="svg u_1904414406" data-icon-name="wp-checked_icon" data-hover-effect="none"> <g id="1714740427"> <path d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+		s23-10.3,23-23S47.7,12,35,12z" id="1596018098"></path> 
+ <polygon points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	" id="1074043037"></polygon> 
+</g> 
+</svg> 
+</div> 
+ <div class="u_1367197187 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1367197187" style="transition: opacity 1s ease-in-out 0s;" data-dashlane-rid="30b46fd11f042127" data-dashlane-classification="identity"> <h4 class="text-align-center" style="letter-spacing: 0.02em;"><span style="color:rgb(0, 0, 0);font-weight:normal;display:unset;font-family:'Libre Baskerville', 'Libre Baskerville Fallback';">ITIL Practice Assessment &amp; Maturity Review</span></h4> 
+</div> 
+</div> 
+ <div class="dmRespCol small-12 large-3 medium-3" id="1937832134"> <div class="u_1076254557 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1076254557"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 70 70" id="1303932927" class="svg u_1303932927" data-icon-name="wp-checked_icon" data-hover-effect="none"> <g id="1714740427"> <path d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+		s23-10.3,23-23S47.7,12,35,12z" id="1596018098"></path> 
+ <polygon points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	" id="1074043037"></polygon> 
+</g> 
+</svg> 
+</div> 
+ <div class="u_1656181483 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1656181483" style="transition: opacity 1s ease-in-out 0s;" data-dashlane-rid="2783c94f8617ae57" data-dashlane-classification="identity"> <h4 class="text-align-center" style="letter-spacing: 0.02em;"><span style="font-weight: 400;"><font color="#000000" face="Libre Baskerville">T</font></span><span style="font-weight: 400; display: initial;"><font color="#000000" face="Libre Baskerville">ailored Service Management Frameworks</font></span></h4> 
+</div> 
+</div> 
+ <div class="dmRespCol small-12 large-3 medium-3" id="1769944126"> <div class="u_1076491054 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1076491054"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 70 70" id="1217092175" class="svg u_1217092175" data-icon-name="wp-checked_icon" data-hover-effect="none"> <g id="1197793385"> <path d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+		s23-10.3,23-23S47.7,12,35,12z" id="1494874329"></path> 
+ <polygon points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	" id="1816043534"></polygon> 
+</g> 
+</svg> 
+</div> 
+ <div class="u_1237269829 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1237269829" style="transition: opacity 1s ease-in-out 0s;" data-dashlane-rid="9b8a0d51e5d1f4ea" data-dashlane-classification="identity"> <h4 class="text-align-center" style="letter-spacing: 0.02em;"><span style="font-weight: 400;"><font color="#000000" face="Libre Baskerville">S</font></span><span style="font-weight: 400; display: initial;"><font color="#000000" face="Libre Baskerville">trategic IT Planning</font></span></h4> 
+</div> 
+</div> 
+ <div class="dmRespCol large-3 medium-3 small-12" id="1577747044"> <div class="u_1967167437 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1967167437"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 70 70" id="1888440835" class="svg u_1888440835" data-icon-name="wp-checked_icon" data-hover-effect="none"> <g id="1484494393"> <path d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+		s23-10.3,23-23S47.7,12,35,12z" id="1046376700"></path> 
+ <polygon points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	" id="1587596809"></polygon> 
+</g> 
+</svg> 
+</div> 
+ <div class="u_1903962896 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1903962896" style="transition: opacity 1s ease-in-out 0s;" data-dashlane-rid="28b5338713192ae0" data-dashlane-classification="identity"> <h4 class="text-align-center" style="letter-spacing: 0.02em;"><span style="font-weight: 400;"><font color="#000000" face="Libre Baskerville">D</font></span><span style="font-weight: 400; display: initial;"><font color="#000000" face="Libre Baskerville">igital Transformation &amp; Value Realisation</font></span></h4> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1673940447 dmRespRow fullBleedChanged fullBleedMode" id="1673940447"> <div class="dmRespColsWrapper" id="1664534722"> <div class="dmRespCol small-12 large-3 medium-3" id="1861945025"> <div class="u_1976401084 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1976401084"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 70 70" id="1327294665" class="svg u_1327294665" data-icon-name="wp-checked_icon" data-hover-effect="none"> <g id="1714740427"> <path d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+		s23-10.3,23-23S47.7,12,35,12z" id="1596018098"></path> 
+ <polygon points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	" id="1074043037"></polygon> 
+</g> 
+</svg> 
+</div> 
+ <div class="u_1647255568 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1647255568" style="transition: opacity 1s ease-in-out 0s;" data-dashlane-rid="0a5463b3ee97aa91" data-dashlane-classification="identity"> <h4 class="text-align-center" style="letter-spacing: 0.02em;"><span style="color:rgb(0, 0, 0);font-weight:normal;display:unset;font-family:'Libre Baskerville', 'Libre Baskerville Fallback';">Operating Model Review &amp; Design</span></h4> 
+</div> 
+</div> 
+ <div class="dmRespCol small-12 large-3 medium-3" id="1841992492"> <div class="u_1403949813 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1403949813"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 70 70" id="1114462717" class="svg u_1114462717" data-icon-name="wp-checked_icon" data-hover-effect="none"> <g id="1714740427"> <path d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+		s23-10.3,23-23S47.7,12,35,12z" id="1596018098"></path> 
+ <polygon points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	" id="1074043037"></polygon> 
+</g> 
+</svg> 
+</div> 
+ <div class="u_1652999235 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1652999235" style="transition: opacity 1s ease-in-out 0s;" data-dashlane-rid="5c415eda180c9216" data-dashlane-classification="identity"> <h4 class="text-align-center" style="letter-spacing: 0.02em;"><span style="color:rgb(0, 0, 0);font-weight:400;display:initial;font-family:'Libre Baskerville', 'Libre Baskerville Fallback';">Talent Management</span></h4> 
+</div> 
+</div> 
+ <div class="dmRespCol small-12 large-3 medium-3" id="1646148559"> <div class="u_1542111541 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1542111541"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 70 70" id="1782334517" class="svg u_1782334517" data-icon-name="wp-checked_icon" data-hover-effect="none"> <g id="1197793385"> <path d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+		s23-10.3,23-23S47.7,12,35,12z" id="1494874329"></path> 
+ <polygon points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	" id="1816043534"></polygon> 
+</g> 
+</svg> 
+</div> 
+ <div class="u_1248226318 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1248226318" style="transition: opacity 1s ease-in-out 0s;" data-dashlane-rid="70aaa84a10e8d794" data-dashlane-classification="identity"> <h4 class="text-align-center" style="letter-spacing: 0.02em;"><span style="color:rgb(0, 0, 0);font-weight:400;display:initial;font-family:'Libre Baskerville', 'Libre Baskerville Fallback';">Interim Leadership</span></h4> 
+</div> 
+</div> 
+ <div class="dmRespCol large-3 medium-3 small-12" id="1951467051"> <div class="u_1807639940 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1807639940"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 70 70" id="1268354116" class="svg u_1268354116" data-icon-name="wp-checked_icon" data-hover-effect="none"> <g id="1484494393"> <path d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+		s23-10.3,23-23S47.7,12,35,12z" id="1046376700"></path> 
+ <polygon points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	" id="1587596809"></polygon> 
+</g> 
+</svg> 
+</div> 
+ <div class="u_1031587402 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1031587402" style="transition: opacity 1s ease-in-out 0s;" data-dashlane-rid="09bc491baec41ad4" data-dashlane-classification="identity"> <h4 class="text-align-center" style="letter-spacing: 0.02em;"><span style="color:rgb(0, 0, 0);font-weight:400;display:initial;font-family:'Libre Baskerville', 'Libre Baskerville Fallback';">Mentoring &amp; Capability Building</span></h4> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1712695556 dmRespRow fullBleedChanged fullBleedMode" style="text-align: center;" id="1712695556"> <div class="dmRespColsWrapper" id="1178802578"> <div class="dmRespCol small-12 medium-6 large-6 u_1916453126" id="1916453126"> <div class="u_1680341512 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1680341512" style="transition: opacity 1s ease-in-out 0s;" data-dashlane-rid="e5d6e3443d28e7c9"> <h2 class="m-text-align-center m-size-26 size-32"><span style="color:rgb(255, 255, 255);display:unset;font-family:'Libre Baskerville', 'Libre Baskerville Fallback';" class="font-size-32 m-font-size-26">How we work</span></h2> 
+</div> 
+ <div class="dmRespRow" id="1729828326"> <div class="dmRespColsWrapper" id="1149521537"> <div class="u_1188189623 dmRespCol small-12 large-2 medium-2" id="1188189623"> <div class="u_1724659286 graphicWidget graphicWidgetV2 graphicWidgetV3" data-element-type="graphic" data-widget-type="graphic" id="1724659286"> <svg width="100%" height="100%" version="1.1" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" id="1635527285" class="svg u_1635527285" data-icon-custom="true"> <g> <path d="m15.477 47.18c-0.38281 0-0.75391-0.13672-1.043-0.39063l-3.9688-3.4297c-0.67188-0.57812-0.74219-1.5859-0.16406-2.2539 0.57812-0.67188 1.5859-0.74219 2.2539-0.16406l3.9688 3.4297c0.50781 0.4375 0.6875 1.1406 0.45703 1.7695-0.23438 0.625-0.83203 1.0391-1.5039 1.0391z"></path> 
+ <path d="m29.848 34.09c-0.53125 0-1.0273-0.26172-1.3242-0.69922l-2.9492-4.3359h-0.003907c-0.23828-0.35156-0.32812-0.78125-0.24609-1.1992 0.078125-0.41797 0.32031-0.78516 0.67188-1.0234 0.73047-0.5 1.7266-0.30859 2.2227 0.42188l2.9492 4.3359c0.33203 0.49219 0.36719 1.125 0.089843 1.6484-0.27344 0.52344-0.82031 0.85156-1.4102 0.85156z"></path> 
+ <path d="m50.074 81.438c-5.2969 0-10.785-1.4922-16.316-4.4414-4.3633-2.3242-8.7656-5.5547-13.086-9.6016-7.3125-6.8516-11.816-13.605-12.008-13.887-0.35156-0.53906-0.35156-1.2344 0-1.7695 0.1875-0.28516 4.6914-7.0391 12.008-13.891 4.3203-4.0469 8.7227-7.2734 13.086-9.6016 5.5312-2.9453 11.02-4.4414 16.316-4.4414s10.777 1.4922 16.301 4.4414c4.3516 2.3242 8.7344 5.5547 13.035 9.6016 7.2773 6.8555 11.746 13.609 11.934 13.895 0.34766 0.53125 0.34766 1.2227 0 1.7578-0.1875 0.28516-4.6562 7.0391-11.934 13.895-4.3008 4.0469-8.6836 7.2773-13.035 9.6016-5.5234 2.9453-11.008 4.4414-16.301 4.4414zm-38.125-28.816c3.25 4.5 6.9219 8.6797 10.961 12.488 6.3984 5.9883 16.316 13.129 27.164 13.129 10.867 0 20.754-7.1641 27.137-13.172v-0.003906c4-3.793 7.6328-7.957 10.844-12.441-3.2266-4.5-6.875-8.6797-10.898-12.488-6.3711-5.9883-16.242-13.125-27.086-13.125s-20.754 7.1406-27.16 13.129c-4.0391 3.8047-7.7109 7.9883-10.961 12.484z"></path> 
+ <path d="m50 65.602c-7.1562 0-12.977-5.8203-12.977-12.977v-0.003906c0-7.1641 5.8086-12.977 12.977-12.977s12.977 5.8125 12.977 12.977c0 7.1562-5.8203 12.98-12.977 12.98zm0-22.754v-0.003906c-3.9531 0-7.5195 2.3828-9.0352 6.0391-1.5117 3.6523-0.67578 7.8594 2.1211 10.652 2.7969 2.7969 7.0039 3.6367 10.656 2.1211 3.6523-1.5117 6.0352-5.0781 6.0352-9.0352-0.003906-5.3945-4.3789-9.7695-9.7773-9.7773z"></path> 
+ <path d="m50 27.008c-0.88281 0-1.5977-0.71094-1.6016-1.5938l-0.015626-5.2461h0.003907c-0.003907-0.42188 0.16406-0.83203 0.46484-1.1328 0.29688-0.30078 0.70703-0.46875 1.1289-0.47266h0.003906c0.42578 0 0.83203 0.17188 1.1328 0.46875 0.30078 0.30078 0.46875 0.70703 0.46875 1.1328l0.015624 5.2461c0 0.87891-0.71484 1.5977-1.5977 1.5977z"></path> 
+ <path d="m70.184 34.039c-0.58984 0-1.1367-0.32812-1.4141-0.85156-0.27344-0.52734-0.23828-1.1602 0.09375-1.6484l2.9492-4.3398c0.23438-0.35938 0.60547-0.60938 1.0273-0.69531 0.42188-0.082031 0.85938 0.003906 1.2148 0.24609 0.35547 0.24219 0.59766 0.61719 0.67578 1.0391 0.074219 0.42578-0.023438 0.85938-0.26953 1.2109l-2.9492 4.3359h-0.003907c-0.29687 0.4375-0.79297 0.70312-1.3242 0.70312z"></path> 
+ <path d="m84.539 47.152c-0.67187 0-1.2695-0.41406-1.5-1.043-0.23437-0.625-0.050781-1.332 0.45313-1.7695l3.9766-3.4219 0.003906 0.003906c0.32031-0.28516 0.74219-0.42969 1.168-0.40234 0.42969 0.027344 0.82812 0.22656 1.1094 0.55469 0.27734 0.32422 0.41797 0.74609 0.37891 1.1758-0.035156 0.42578-0.24219 0.82422-0.57031 1.0977l-3.9766 3.4219v-0.003906c-0.28906 0.25-0.66016 0.39062-1.043 0.38672z"></path> 
+</g> 
+</svg> 
+</div> 
+</div> 
+ <div class="u_1125239182 dmRespCol small-12 large-10 medium-10" id="1125239182"> <div class="dmNewParagraph u_1807728665" data-element-type="paragraph" data-version="5" id="1807728665" style="text-align: left; display: block;" data-dashlane-rid="7417686b184e73dd"><p class="m-size-14 size-18" style="letter-spacing: 0.02em;"><strong style="color:rgb(246, 247, 248);font-weight:bold;display:initial;font-family:Raleway, 'Raleway Fallback';" class="m-font-size-14 font-size-18">We observe first</strong></p><p style="letter-spacing: 0.02em;"><span style="color:rgb(246, 247, 248);display:unset;font-family:Raleway, 'Raleway Fallback';">We lift the lid to see what&rsquo;s really happening &mdash; how processes flow, how teams connect, and where the real opportunities lie. Insight first, action second.</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow" id="1221161864"> <div class="dmRespColsWrapper" id="1882012761"> <div class="u_1937179143 dmRespCol small-12 large-2 medium-2" id="1937179143"> <div class="u_1911531325 graphicWidget graphicWidgetV2 graphicWidgetV3" data-element-type="graphic" data-widget-type="graphic" id="1911531325"> <svg width="100%" height="100%" version="1.1" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" id="1804369509" class="svg u_1804369509" data-icon-custom="true"> <path d="m59.629 4.4922c10.859 0 20.695 4.4023 27.809 11.52 7.1172 7.1172 11.52 16.949 11.52 27.809 0 3.0273-0.34766 5.9883-1.0039 8.8438-0.67969 2.9414-1.6758 5.7461-2.9609 8.375-0.20703 0.42578-0.33594 0.82422-0.38281 1.2109-0.050781 0.40625-0.03125 0.82812 0.058594 1.2773l2.2305 11.113c0.30078 1.4883 0.21484 2.9453-0.22266 4.2969-0.4375 1.3555-1.2266 2.5859-2.3438 3.6133-1.1133 1.0273-2.4062 1.7148-3.7852 2.043-1.3828 0.32812-2.8477 0.29297-4.3008-0.12109l-11.84-3.3906c-0.42188-0.12109-0.80859-0.17578-1.1719-0.16797-0.36719 0.007813-0.74219 0.078126-1.1484 0.21484-1.2344 0.41016-2.4922 0.76562-3.7812 1.0547-3.5508 3.582-7.7852 6.4883-12.496 8.5039-4.75 2.0312-9.9727 3.1562-15.445 3.1562-2.1211 0-4.2344-0.17578-6.3164-0.51172-2.1133-0.34375-4.168-0.85156-6.1484-1.5117-0.40234-0.13672-0.78125-0.20703-1.1484-0.21484-0.35938-0.007813-0.74609 0.050781-1.1719 0.17188l-11.836 3.3906c-1.4531 0.41797-2.918 0.44922-4.3008 0.12109-1.3828-0.32812-2.6719-1.0156-3.7891-2.043-1.1133-1.0273-1.9023-2.2578-2.3438-3.6133-0.4375-1.3516-0.52344-2.8125-0.22266-4.2969l2.2305-11.113c0.089844-0.44922 0.10938-0.87109 0.058594-1.2773-0.046875-0.38281-0.17578-0.78125-0.38281-1.2109-1.2852-2.6289-2.2812-5.4336-2.9609-8.375-0.65625-2.8555-1.0039-5.8164-1.0039-8.8438 0-9.3945 3.3047-18.027 8.8125-24.801 5.457-6.707 13.09-11.582 21.82-13.559l0.13672-0.14062c7.1172-7.1172 16.949-11.52 27.809-11.52zm0.42578 78.66c-0.14063 0.003906-0.28125 0.003906-0.42578 0.003906-10.859 0-20.695-4.4023-27.809-11.52-7.1172-7.1172-11.52-16.949-11.52-27.809 0-7.793 2.2695-15.059 6.1797-21.172-5.1172 2.2344-9.5898 5.668-13.07 9.9453-4.8594 5.9727-7.7734 13.598-7.7734 21.914 0 2.707 0.30469 5.3203 0.87891 7.8203 0.58984 2.5742 1.4805 5.0508 2.6172 7.3906 0.41406 0.84766 0.67969 1.7227 0.79688 2.6445 0.11719 0.89844 0.078124 1.8047-0.10938 2.7461l-2.2305 11.113c-0.13672 0.69141-0.10156 1.3672 0.097656 1.9844 0.19922 0.61328 0.56641 1.1758 1.0898 1.6602 0.52344 0.48047 1.1172 0.80078 1.7422 0.94922 0.625 0.14844 1.3008 0.12891 1.9844-0.066407l11.84-3.3906c0.83594-0.23828 1.6602-0.35156 2.5156-0.33203 0.84766 0.019532 1.6758 0.16797 2.5117 0.44531 1.75 0.58594 3.5586 1.0312 5.4141 1.3359 1.793 0.28906 3.668 0.44141 5.6016 0.44141 4.8555 0 9.4727-0.98828 13.652-2.7773 2.1289-0.91016 4.1445-2.0234 6.0234-3.3203zm6.5508-5.2812c0.058593-0.015625 0.11719-0.027344 0.17578-0.035156 1.3164-0.27734 2.6055-0.62891 3.8633-1.0469 0.83594-0.27734 1.6641-0.42969 2.5117-0.44531 0.84766-0.019531 1.6797 0.09375 2.5156 0.32812l11.84 3.3906c0.6875 0.19531 1.3633 0.21484 1.9844 0.066406 0.62891-0.14844 1.2227-0.46875 1.7422-0.94922 0.52344-0.48047 0.88672-1.0469 1.0898-1.6602 0.19922-0.61328 0.23828-1.2891 0.097656-1.9844l-2.2305-11.113c-0.1875-0.9375-0.22656-1.8516-0.10937-2.7461 0.11719-0.92188 0.38281-1.793 0.79687-2.6445 1.1406-2.3398 2.0273-4.8164 2.6172-7.3906 0.57422-2.5 0.87891-5.1172 0.87891-7.8203 0-9.5938-3.8867-18.277-10.176-24.566-6.2891-6.2891-14.973-10.176-24.566-10.176s-18.277 3.8867-24.566 10.176c-6.2852 6.2891-10.176 14.973-10.176 24.566s3.8867 18.277 10.176 24.566c6.2891 6.2891 14.973 10.176 24.566 10.176 1.9375 0 3.8086-0.14844 5.6016-0.44141 0.46094-0.074219 0.91797-0.15625 1.3711-0.25zm-16.273-39.551c0 1.2656-1.0273 2.2969-2.2969 2.2969-1.2656 0-2.2969-1.0273-2.2969-2.2969 0-3.8359 1.5586-7.3086 4.0664-9.8203 2.5156-2.5156 5.9844-4.0664 9.8203-4.0664s7.3086 1.5547 9.8203 4.0664c2.5156 2.5156 4.0664 5.9844 4.0664 9.8203 0 3.8359-1.5586 7.3086-4.0664 9.8203-2 2-4.6094 3.3945-7.5234 3.8789v0.55859c0 1.2656-1.0273 2.2969-2.2969 2.2969-1.2656 0-2.2969-1.0273-2.2969-2.2969v-2.6641c0-1.2656 1.0273-2.2969 2.2969-2.2969 2.5664 0 4.8945-1.0391 6.5742-2.7227 1.6836-1.6836 2.7227-4.0078 2.7227-6.5742 0-2.5664-1.0391-4.8945-2.7227-6.5742-1.6836-1.6836-4.0078-2.7227-6.5742-2.7227s-4.8945 1.0391-6.5742 2.7227c-1.6836 1.6836-2.7227 4.0078-2.7227 6.5742zm7.0039 21.902c0-1.2656 1.0273-2.2969 2.2969-2.2969 1.2656 0 2.2969 1.0273 2.2969 2.2969v1.4062c0 1.2656-1.0273 2.2969-2.2969 2.2969-1.2656 0-2.2969-1.0273-2.2969-2.2969z"></path> 
+</svg> 
+</div> 
+</div> 
+ <div class="u_1606945882 dmRespCol small-12 large-10 medium-10" id="1606945882"> <div class="dmNewParagraph u_1072389200" data-element-type="paragraph" data-version="5" id="1072389200" style="text-align: left; display: block;" data-dashlane-rid="f485b99de3173532" data-dashlane-classification="identity"><p style="letter-spacing: 0.02em;"><strong style="color:rgb(246, 247, 248);display:unset;font-family:Raleway, 'Raleway Fallback';" class="m-font-size-14 font-size-18">We ask the right questions</strong><span style="color:rgb(246, 247, 248);display:initial;font-family:Raleway, 'Raleway Fallback';"><br/></span><span style="color:rgb(246, 247, 248);display:unset;font-family:Raleway, 'Raleway Fallback';">Curiosity drives clarity. We challenge assumptions, dig deeper, and ask the questions others don&rsquo;t &mdash; unlocking insights that lead to smarter, stronger solutions.</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow" id="1472456707"> <div class="dmRespColsWrapper" id="1418164997"> <div class="u_1696015055 dmRespCol small-12 large-2 medium-2" id="1696015055"> <div class="u_1446318363 graphicWidget graphicWidgetV2 graphicWidgetV3" data-element-type="graphic" data-widget-type="graphic" id="1446318363"> <svg width="100%" height="100%" version="1.1" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" id="1384149857" class="svg u_1384149857" data-icon-custom="true"> <path d="m21.418 99.594c-0.64844 0.003906-1.2344-0.38672-1.4805-0.98438-0.25-0.60156-0.10938-1.2891 0.35156-1.75 14.109-14.109 14.109-37.07 0-51.172h-0.003906c-0.625-0.62109-0.625-1.6367 0-2.2617s1.6367-0.625 2.2617 0c15.359 15.359 15.359 40.344 0 55.703-0.29688 0.30078-0.70312 0.46875-1.1289 0.46875z"></path> 
+ <path d="m14.293 92.469c-0.64844 0.003906-1.2305-0.38672-1.4805-0.98828-0.24609-0.59766-0.10938-1.2852 0.34766-1.7461 10.18-10.18 10.18-26.746 0-36.926v0.003906c-0.625-0.62891-0.62109-1.6445 0.003906-2.2656 0.62891-0.625 1.6406-0.62109 2.2656 0.003906 11.43 11.43 11.43 30.023 0 41.453v-0.003906c-0.30078 0.30469-0.71094 0.47266-1.1367 0.46875z"></path> 
+ <path d="m7.168 85.352c-0.64844 0-1.2305-0.39062-1.4805-0.98828-0.24609-0.59766-0.10938-1.2891 0.34766-1.7461 3.0234-3 4.7188-7.082 4.707-11.344 0.007812-4.2539-1.6875-8.3359-4.707-11.336-0.625-0.625-0.625-1.6367 0-2.2617s1.6406-0.625 2.2617 0c3.6211 3.5977 5.6484 8.4961 5.6328 13.598 0.015624 5.1055-2.0117 10.004-5.6289 13.602h-0.003906c-0.29688 0.30469-0.70312 0.47656-1.1289 0.47656z"></path> 
+ <path d="m56.34 99.594c-11.539 0-18.422-7.3906-18.422-19.773h-0.003907c0-0.88281 0.71875-1.6016 1.6016-1.6016s1.6016 0.71875 1.6016 1.6016c0 10.531 5.5469 16.578 15.227 16.578 9.6758 0 15.234-6.043 15.234-16.578h-0.003906c0-0.88281 0.71484-1.6016 1.5977-1.6016 0.88672 0 1.6016 0.71875 1.6016 1.6016-0.007813 12.383-6.8984 19.773-18.434 19.773z"></path> 
+ <path d="m73.164 81.422c-0.84375-0.003906-1.5391-0.65625-1.5938-1.5-0.58594-9.0312 5.0195-16.57 10.445-23.859 4.2188-5.6641 8.2031-11.031 8.4844-16.285h-0.003906c0.003906-0.070313 0.011718-0.14062 0.027344-0.21094 1.8672-9.9609 0-18.672-5.3906-25.172-5.6094-6.7539-14.797-10.793-24.586-10.793-16.516 0-29.949 13.438-29.949 29.949 0 0.88281-0.71484 1.5977-1.5977 1.5977s-1.6016-0.71484-1.6016-1.5977c0-18.277 14.871-33.148 33.148-33.148 10.727 0 20.84 4.4688 27.047 11.945 6 7.2266 8.1094 16.809 6.0898 27.703-0.36719 6.1797-4.6133 11.883-9.1055 17.922-5.0781 6.8281-10.336 13.883-9.8203 21.742h0.003907c0.027343 0.42188-0.11328 0.83984-0.39453 1.1602-0.27734 0.32031-0.67578 0.51172-1.0977 0.54297z"></path> 
+ <path d="m48.094 62.852c-0.84766 0-1.5508-0.66016-1.6016-1.5039-0.050782-0.84375 0.5625-1.582 1.4062-1.6836 0.46094-0.0625 4.5469-0.72656 4.2969-4.4062-0.11328-1.6992-0.64062-2.8945-1.5625-3.5547-1.6484-1.1719-4.2031-0.53125-4.2266-0.52344l-0.003906-0.003907c-0.60156 0.16406-1.2383-0.039062-1.6406-0.51172-5.4141-6.3984-7.6172-15.789-5.3672-22.836 1.1953-3.7305 4.1875-8.5781 11.672-10.488h0.003906c0.85156-0.20703 1.707 0.30859 1.9258 1.1562 0.21484 0.84766-0.28906 1.7148-1.1367 1.9414-4.8828 1.2422-8.0391 4.0547-9.418 8.3594-1.8164 5.7109-0.058594 13.586 4.1914 19.094 1.3828-0.17969 3.8516-0.22266 5.8594 1.2109 1.7422 1.2422 2.7148 3.2422 2.8945 5.9414 0.36328 5.4062-4.4766 7.4648-7.0898 7.7969v-0.003906c-0.066406 0.007812-0.13672 0.015624-0.20312 0.015624z"></path> 
+ <path d="m76.934 30.227c-0.58984 0-1.1328-0.32422-1.4102-0.84375-0.011719-0.023437-1.3516-2.4766-4.1328-4.8984-3.5547-3.1445-8.1367-4.8828-12.883-4.8828-0.88281-0.003906-1.5938-0.72656-1.5898-1.6094 0.003906-0.88281 0.72656-1.5938 1.6094-1.5898h0.015625c5.5547 0.03125 10.902 2.0859 15.051 5.7695 3.1797 2.7969 4.6875 5.5938 4.75 5.7109 0.26172 0.49609 0.24219 1.0938-0.046875 1.5703-0.28516 0.48047-0.80469 0.77344-1.3633 0.77344z"></path> 
+ <path d="m52.918 82.945c-0.47266 0.003907-0.94531-0.023437-1.4102-0.078124-0.14844-0.019532-3.6562-0.53906-5.7344-3.543-1.4688-2.125-1.8359-4.8672-1.0938-8.1562l-0.003907-0.003907c0.19531-0.86328 1.0547-1.4062 1.918-1.2109s1.4023 1.0547 1.207 1.9141c-0.53516 2.3633-0.33594 4.25 0.58594 5.6055 1.2578 1.8516 3.5508 2.2188 3.5742 2.2227 0.023437 0 3.5547 0.45313 5.4219-1.3672 1.0078-0.98828 1.3906-2.5742 1.1445-4.7109-0.86719-7.5 5.4922-13.016 6.3672-13.734 0.65625-0.68359 7.2109-7.7305 6.6406-15.008-0.27344-3.5156-2.2188-6.6133-5.7773-9.2188-6.2891-4.6016-12.559-5.1016-18.637-1.4805v0.007813c-0.75781 0.45312-1.7422 0.20312-2.1914-0.55859-0.45313-0.75781-0.20313-1.7383 0.55469-2.1914 5.0078-2.9844 12.918-5.1172 22.164 1.6484 4.3477 3.1836 6.7305 7.0703 7.0781 11.562 0.70703 9.0898-7.2734 17.211-7.6172 17.555-0.042969 0.042969-0.089844 0.085937-0.14062 0.125-0.054688 0.046875-5.9688 4.8359-5.2656 10.93 0.36719 3.1797-0.33594 5.6641-2.0977 7.3789-2.0469 1.9844-4.9648 2.3125-6.6875 2.3125z"></path> 
+</svg> 
+</div> 
+</div> 
+ <div class="u_1101976562 dmRespCol small-12 large-10 medium-10" id="1101976562"> <div class="dmNewParagraph u_1331157724" data-element-type="paragraph" data-version="5" id="1331157724" style="transition: none; text-align: left; display: block;" data-dashlane-rid="a75f9f809dc0d4ab" data-dashlane-classification="identity"><p class="m-size-14 size-18" style="letter-spacing: 0.02em;"><strong style="color:rgb(246, 247, 248);font-weight:bold;display:initial;font-family:Raleway, 'Raleway Fallback';" class="m-font-size-14 font-size-18">We truly listen</strong></p><p style="letter-spacing: 0.02em;"><span class="" style="color:rgb(246, 247, 248);display:unset;font-family:Raleway, 'Raleway Fallback';"><span style="color:rgb(246, 247, 248);display:unset;font-family:Raleway, 'Raleway Fallback';">Not just hearing &mdash;</span> 
+</span><strong style="color:rgb(246, 247, 248);display:unset;font-family:Raleway, 'Raleway Fallback';">really listening</strong><span style="color:rgb(246, 247, 248);display:unset;font-family:Raleway, 'Raleway Fallback';">. We take the time to absorb what you&rsquo;re saying, understand what matters, and respond with insight, not assumption.</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow" id="1777399085"> <div class="dmRespColsWrapper" id="1735481294"> <div class="u_1846367618 dmRespCol small-12 large-2 medium-2" id="1846367618"> <div class="u_1941537848 graphicWidget graphicWidgetV2 graphicWidgetV3" data-element-type="graphic" data-widget-type="graphic" id="1941537848"> <svg width="100%" height="100%" version="1.1" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" id="1672623046" class="svg u_1672623046" data-icon-custom="true"> <path d="m94.98 31.656c-0.003907-0.027344-0.003907-0.054688-0.011719-0.082031-0.015625-0.066407-0.042969-0.125-0.070312-0.18359-0.007813-0.015625-0.011719-0.035156-0.019532-0.050781-0.039062-0.074219-0.089844-0.14062-0.14844-0.19922-0.015625-0.015625-0.039063-0.03125-0.054688-0.046875-0.042969-0.039062-0.082031-0.078125-0.13281-0.10938-0.003907-0.003906-0.007813-0.003906-0.011719-0.003906s-0.003906-0.003907-0.007812-0.007813l-29.91-17.5c-0.27344-0.16016-0.61328-0.17578-0.90234-0.039062l-58.16 27.688c-0.011719 0.003906-0.019531 0.015625-0.03125 0.019531-0.011719 0.007813-0.023437 0.007813-0.035156 0.015625-0.03125 0.015625-0.054687 0.042969-0.082031 0.0625-0.03125 0.023438-0.066406 0.046875-0.09375 0.070312-0.035156 0.03125-0.0625 0.066407-0.089844 0.10547-0.023438 0.03125-0.050781 0.058594-0.070312 0.09375-0.023438 0.039063-0.042969 0.082031-0.058594 0.125-0.015625 0.035157-0.035156 0.070313-0.042969 0.10938-0.011719 0.046875-0.019531 0.09375-0.023437 0.14062-0.003907 0.03125-0.015626 0.0625-0.015626 0.09375v0.019531c-0.003906 0.003907-0.007812 0.007813-0.007812 0.015626v27.18c0 0.35938 0.19922 0.6875 0.51562 0.85547l31.18 16.52c0.039063 0.019531 0.082032 0.03125 0.125 0.046875 0.027344 0.011719 0.054688 0.023438 0.082032 0.03125 0.082031 0.019531 0.16406 0.035156 0.24609 0.035156 0.13281 0 0.26562-0.035156 0.39062-0.09375 0.011719-0.003906 0.027344-0.003906 0.039063-0.007812l56.891-28.363c0.32422-0.16406 0.53125-0.5 0.53125-0.86719v-25.52c0-0.050782-0.011719-0.10156-0.019531-0.15234zm-58.801 52.434-10.625-5.6289-0.003907-23.941 4.6992 2.7383 5.9258 3.4531zm-12.559-30.695v24.039l-7.0781-3.75v-24.414zm40.848-5.7617v23.355l-7.0742 3.5273v-23.352zm1.9336-0.96484 4.6484-2.3164v23.355l-4.6484 2.3164zm6.5586-3.2695 7.1992-3.5898-0.097656 23.406-7.0781 3.5312-0.003906-23.238c0-0.039062-0.015625-0.070312-0.019531-0.10937zm-8.8828-28 27.926 16.344-54.824 27.312-11.895-6.9258c-0.11719-0.125-0.26953-0.20312-0.4375-0.25391l-8.7695-5.1055c-0.054687-0.035156-0.10156-0.070312-0.16016-0.09375l-7.8867-4.5938zm-57.145 28.277 7.6797 4.4727v24.516l-7.6797-4.0703zm31.176 17.105 17.352-8.6523v23.355l-17.352 8.6484zm54.957-4.0508-11.07 5.5195 0.097656-23.109c0-0.097656-0.027344-0.18359-0.054688-0.27344l11.027-5.5zm-66.895-14.254 13.297 7.7422c0.14844 0.085938 0.31641 0.13281 0.48828 0.13281 0.15234 0 0.30469-0.035156 0.44531-0.10937l13.695-7.0742c0.3125-0.16406 0.51172-0.48047 0.52344-0.83203 0.007812-0.35156-0.17578-0.67969-0.47656-0.85938l-12.754-7.4648c-0.27734-0.16016-0.61719-0.17578-0.90234-0.039063l-14.238 6.7969c-0.32422 0.15234-0.53516 0.47656-0.55078 0.83203-0.019531 0.35938 0.16406 0.69531 0.47266 0.875zm14.676-6.5391 10.797 6.3203-11.664 6.0273-11.258-6.5547zm5.0195-3.2344 13.297 7.7461c0.14844 0.085937 0.31641 0.13281 0.48438 0.13281 0.15234 0 0.30469-0.035156 0.44531-0.10938l13.695-7.0742c0.3125-0.16406 0.51172-0.48047 0.52344-0.83203 0.007812-0.35156-0.17578-0.67969-0.47656-0.85938l-12.754-7.4648c-0.27734-0.16016-0.61328-0.17578-0.90234-0.039063l-14.238 6.7969c-0.32422 0.15234-0.53516 0.47656-0.55078 0.83203-0.019531 0.35156 0.16406 0.69141 0.47656 0.87109zm14.676-6.5391 10.797 6.3203-11.664 6.0273-11.258-6.5586z"></path> 
+</svg> 
+</div> 
+</div> 
+ <div class="u_1446625997 dmRespCol small-12 large-10 medium-10" id="1446625997"> <div class="dmNewParagraph u_1683526030" data-element-type="paragraph" data-version="5" id="1683526030" style="text-align: left; display: block;" data-dashlane-rid="08cc605944a1ba13" data-dashlane-classification="identity"><p class="m-size-14 size-18" style="letter-spacing: 0.02em;"><strong style="color:rgb(246, 247, 248);font-weight:bold;display:initial;font-family:Raleway, 'Raleway Fallback';" class="font-size-18 m-font-size-14">We get the feel of the land</strong></p><p style="letter-spacing: 0.02em;"><span style="color:rgb(246, 247, 248);display:unset;font-family:Raleway, 'Raleway Fallback';">We tune into what&rsquo;s working &mdash; and what&rsquo;s not. By understanding the rhythms, roadblocks, and realities of your organisation, we lay the groundwork for change that sticks.</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow" id="1955278666"> <div class="dmRespColsWrapper" id="1136163050"> <div class="u_1950932333 dmRespCol small-12 large-2 medium-2" id="1950932333"> <div class="u_1498172311 graphicWidget graphicWidgetV2 graphicWidgetV3" data-element-type="graphic" data-widget-type="graphic" id="1498172311"> <svg width="100%" height="100%" version="1.1" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" id="1033520252" class="svg u_1033520252" data-icon-custom="true"> <path d="m82.5 13.602c-3.5-3.5-9.8984-1.8008-17.801 6.1016 0 0-2.6992 2.6016-6.6992 6.8008l-42.301-2.8008-4.6992 4.5977 32.102 14.398c-3.6016 4.1992-7.1016 8.6016-10.102 12.699l-14.398-1.8008-5.6016 5.6016 14.199 5.3984c-1.3008 2.5-2.1016 4.6992-2.3008 6.5l0.19922 0.19922c1.8984-0.19922 4.3008-1.1016 6.8984-2.5l5.3008 13.699 5.6016-5.6016-1.6992-14c3.8984-2.8008 8-6.1992 12-9.6016l14.5 32.398 4.6992-4.6992-2.8008-42.602c4.3008-4.1992 7.1016-7 7.1016-7 7.8984-7.8984 9.6016-14.301 6.1016-17.801z"></path> 
+</svg> 
+</div> 
+</div> 
+ <div class="u_1169085345 dmRespCol small-12 large-10 medium-10" id="1169085345"> <div class="dmNewParagraph u_1283493027" data-element-type="paragraph" data-version="5" id="1283493027" style="text-align: left; display: block;" data-dashlane-rid="65e3620d40a48e5d" data-dashlane-classification="identity"> <h3 class="size-18 m-size-14" style="letter-spacing: 0.02em;"><strong style="color:rgb(246, 247, 248);font-weight:bold;display:unset;font-family:Raleway, 'Raleway Fallback';" class="font-size-18 m-font-size-14">We Take a Holistic View</strong></h3> 
+<p style="letter-spacing: 0.02em;"><span style="color:rgb(246, 247, 248);display:unset;font-family:Raleway, 'Raleway Fallback';">We zoom out to see the full picture &mdash; connecting the dots across people, processes, and purpose. With objectivity and insight, we uncover what truly drives success.</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1725814988 dmRespRow" id="1725814988"> <div class="dmRespColsWrapper" id="1323128657"> <div class="u_1230310536 dmRespCol small-12 large-2 medium-2" id="1230310536"> <div class="u_1221460834 graphicWidget graphicWidgetV2 graphicWidgetV3" data-element-type="graphic" data-widget-type="graphic" id="1221460834"> <svg width="100%" height="100%" version="1.1" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" id="1463373864" class="svg u_1463373864" data-icon-custom="true"> <path d="m65.375 13.508c0-0.82812 0.67188-1.5 1.5-1.5s1.5 0.67188 1.5 1.5v13.188c0 0.82813-0.67188 1.5-1.5 1.5s-1.5-0.67187-1.5-1.5zm0 20.078c0-0.82813 0.67188-1.5 1.5-1.5s1.5 0.67187 1.5 1.5586-0.67188 1.5586-1.5 1.5586-1.5-0.67188-1.5-1.6172zm23.465 0.25781c-1.3203 2.8594-3.1836 5.4141-5.4492 7.5312-0.64453 0.60156-1.1328 1.2773-1.4531 2.0156-0.32422 0.74219-0.48828 1.5586-0.48828 2.4336-0.003907 1.418-0.58594 2.707-1.5156 3.6367-0.23438 0.23437-0.48828 0.44531-0.76562 0.62891v6.2539c0 1.2891-0.52734 2.4648-1.3789 3.3164-0.85937 0.85938-2.0352 1.3867-3.3242 1.3867h-15.18c-1.293 0-2.4727-0.53125-3.3242-1.3789-0.85156-0.85156-1.3789-2.0273-1.3789-3.3242v-6.2539c-0.27344-0.18359-0.53125-0.39844-0.76562-0.62891-0.92969-0.92969-1.5117-2.2188-1.5156-3.6367-0.003906-0.875-0.16797-1.6914-0.50391-2.4688-0.33203-0.74219-0.80859-1.3945-1.4336-1.9805-2.4062-2.2461-4.3555-4.9883-5.6875-8.0508-1.2852-2.957-1.9961-6.2148-1.9961-9.6289 0-5.0039 1.5234-9.6562 4.1328-13.52-7.0469 1.6836-12.574 4.9766-16.566 9.9727-4.75 5.9492-7.4023 14.355-7.918 25.371-0.007813 0.31641-0.11719 0.62891-0.32812 0.89453l-11.285 14.07c-0.24609 0.30469-0.40234 0.64062-0.48047 1-0.082031 0.41406-0.058594 0.82031 0.078125 1.2422 0.16016 0.44922 0.41016 0.80859 0.74219 1.0781 0.27344 0.22266 0.61328 0.38672 0.99609 0.46484l6.5938 1.3398c0.75391 0.082031 1.3398 0.71875 1.3398 1.4922v11.871l0.019531 0.47266c0.11719 1.1875 0.67578 2.2383 1.5 2.9883 0.82031 0.74609 1.918 1.1992 3.1172 1.1992l0.47656-0.019531 8.7422-0.85547c0.82422-0.03125 1.5195 0.60938 1.5547 1.4336l0.55078 13.305h32.914l2.2812-20.004c0.054687-0.46875 0.32812-0.90625 0.77344-1.1484 6.2188-3.3984 11.16-9.7852 14.266-17.105 3.2773-7.7305 4.4922-16.461 3.0156-23.82-0.10547-0.52734-0.22656-1.0508-0.35547-1.5781zm-12.668 17.125h-18.586v5.375c0 0.46484 0.19141 0.89453 0.50391 1.2031 0.30859 0.30859 0.73438 0.5 1.2031 0.5h15.18c0.46875 0 0.89453-0.19141 1.2031-0.49609 0.3125-0.3125 0.50391-0.73828 0.50391-1.207v-5.375zm5.6953-42.262c-3.8359-3.8359-9.1328-6.207-14.988-6.207-5.8555 0-11.152 2.3711-14.988 6.207-3.8359 3.832-6.2109 9.1328-6.2109 14.988 0 3.0039 0.62109 5.8594 1.7383 8.4336 1.1641 2.6836 2.875 5.0859 4.9844 7.0547 0.91797 0.85938 1.6289 1.8438 2.1328 2.9727 0.50391 1.1523 0.75391 2.3672 0.75781 3.668 0 0.58594 0.24609 1.125 0.63672 1.5156 0.39062 0.38672 0.92969 0.62891 1.5234 0.62891h18.848c0.59375 0 1.1328-0.24219 1.5234-0.62891 0.39062-0.39062 0.63672-0.92969 0.63672-1.5156 0.003906-1.3008 0.25-2.5156 0.73437-3.6289 0.48438-1.1172 1.207-2.125 2.1562-3.0117 2.1133-1.9727 3.8203-4.3672 4.9805-7.0469 1.1172-2.5781 1.7383-5.4336 1.7383-8.4414 0-5.8516-2.3711-11.152-6.207-14.988z"></path> 
+</svg> 
+</div> 
+</div> 
+ <div class="u_1164833940 dmRespCol small-12 large-10 medium-10" id="1164833940"> <div class="dmNewParagraph u_1923202889" data-element-type="paragraph" data-version="5" id="1923202889" style="transition: none; text-align: left; display: block;" data-dashlane-rid="033d10b90cc3c129"> <h3 class="m-size-14 size-18" style="letter-spacing: 0.02em;"><strong style="color:rgb(246, 247, 248);font-weight:bold;display:unset;font-family:Raleway, 'Raleway Fallback';" class="m-font-size-14 font-size-18">We Think Critically</strong></h3> 
+<p style="letter-spacing: 0.02em;"><span style="color:rgb(246, 247, 248);display:unset;font-family:Raleway, 'Raleway Fallback';">We don&rsquo;t settle for &ldquo;that&rsquo;s how it&rsquo;s always been.&rdquo; We question the status quo, challenge assumptions, and uncover smarter ways forward &mdash; grounded in logic, curiosity, and fresh perspective.</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1338831473 dmRespRow" id="1338831473"> <div class="dmRespColsWrapper" id="1839137944"> <div class="u_1385276303 dmRespCol small-12 large-2 medium-2" id="1385276303"> <div class="u_1588258154 graphicWidget graphicWidgetV2 graphicWidgetV3" data-element-type="graphic" data-widget-type="graphic" id="1588258154"> <svg width="100%" height="100%" version="1.1" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" id="1982428309" class="svg u_1982428309" data-icon-custom="true"> <path d="m93.102 28.219h-12.422c-1.6016 0-2.8984 1.3008-2.8984 2.8984v61.984c0 1.6016 1.3008 2.8984 2.8984 2.8984h12.422c1.6016 0 2.8984-1.3008 2.8984-2.8984v-61.98c0-1.6016-1.3008-2.9023-2.8984-2.9023zm1.0195 64.883c0 0.55859-0.46094 1.0195-1.0195 1.0195h-12.422c-0.55859 0-1.0195-0.46094-1.0195-1.0195v-61.98c0-0.55859 0.46094-1.0195 1.0195-1.0195h12.422c0.55859 0 1.0195 0.46094 1.0195 1.0195zm-25.609-49.07h-12.434c-1.6016 0-2.8984 1.3008-2.8984 2.8984v46.172c0 1.6016 1.3008 2.8984 2.8984 2.8984h12.43c1.6016 0 2.8984-1.3008 2.8984-2.8984l0.003906-46.172c0-1.6016-1.3008-2.8984-2.8984-2.8984zm1.0195 49.07c0 0.55859-0.46094 1.0195-1.0195 1.0195h-12.434c-0.55859 0-1.0195-0.46094-1.0195-1.0195v-46.172c0-0.55859 0.46094-1.0195 1.0195-1.0195h12.43c0.55859 0 1.0195 0.46094 1.0195 1.0195zm-25.609-33.262h-12.434c-1.6016 0-2.8984 1.3008-2.8984 2.8984v30.363c0 1.6016 1.3008 2.8984 2.8984 2.8984h12.43c1.6016 0 2.8984-1.3008 2.8984-2.8984l0.003906-30.363c-0.011718-1.5977-1.3086-2.8984-2.8984-2.8984zm1.0195 33.262c0 0.55859-0.46094 1.0195-1.0195 1.0195h-12.434c-0.55859 0-1.0195-0.46094-1.0195-1.0195v-30.363c0-0.55859 0.46094-1.0195 1.0195-1.0195h12.43c0.55859 0 1.0195 0.46094 1.0195 1.0195zm-25.621-17.453h-12.422c-1.6016 0-2.8984 1.3008-2.8984 2.8984v14.555c0 1.5977 1.3008 2.8984 2.8984 2.8984h12.43c1.6016 0 2.8984-1.3008 2.8984-2.8984l0.003907-14.551c-0.011719-1.6016-1.3086-2.9023-2.9102-2.9023zm1.0195 17.453c0 0.55859-0.46094 1.0195-1.0195 1.0195h-12.422c-0.55859 0-1.0195-0.46094-1.0195-1.0195v-14.551c0-0.55859 0.46094-1.0195 1.0195-1.0195h12.43c0.55859 0 1.0195 0.46094 1.0195 1.0195l0.003906 14.551zm34.27-80.512c0.41016-0.41016 0.55078-1 0.37891-1.5508-0.17188-0.55078-0.62891-0.94922-1.1992-1.0508l-4-0.71875-0.71875-4c-0.10156-0.57031-0.51172-1.0312-1.0508-1.1992-0.55078-0.17187-1.1406-0.03125-1.5508 0.37891l-5.2812 5.2812c-3.8281-2.3398-8.2109-3.5898-12.73-3.5898-13.488 0-24.457 10.969-24.457 24.461 0 13.488 10.969 24.461 24.461 24.461 13.488 0 24.461-10.969 24.461-24.461 0-4.5195-1.25-8.8984-3.5898-12.73zm-6.75 4.1016c-0.019531 0.019532-0.019531 0.019532-0.050781 0.019532l-3.4883-0.62891 4.9883-4.9883 3.5195 0.62891zm-5.4883-5.4805 4.9688-4.9688 0.62891 3.5195-4.9883 4.9883-0.62891-3.4883c0-0.03125 0-0.03125 0.019532-0.050781zm-13.91 41.98c-12.449 0-22.578-10.129-22.578-22.578s10.129-22.578 22.578-22.578c4.2891 0 8.4414 1.2109 12.039 3.4883 0 0.03125 0 0.058593 0.011719 0.078124l0.85938 4.7812-2.25 2.25c-2.8398-2.5312-6.5703-4.0781-10.66-4.0781-8.8594 0-16.059 7.2109-16.059 16.059 0 8.8516 7.2109 16.059 16.059 16.059 8.8594 0 16.059-7.2109 16.059-16.059 0-4.0898-1.5508-7.8203-4.0781-10.66l2.25-2.25 4.7812 0.85938c0.03125 0.011719 0.058594 0 0.089844 0.011719 2.2812 3.6016 3.4883 7.75 3.4883 12.039 0 12.438-10.141 22.578-22.59 22.578zm5.7891-22.59c0 3.1914-2.6016 5.7891-5.7891 5.7891-3.1914 0-5.7891-2.6016-5.7891-5.7891 0-3.1914 2.6016-5.7891 5.7891-5.7891 1.2617 0 2.4219 0.41016 3.3711 1.0898l-4.0312 4.0312c-0.37109 0.37109-0.37109 0.96094 0 1.3281 0.17969 0.17969 0.42188 0.28125 0.66016 0.28125 0.23828 0 0.48047-0.089844 0.66016-0.28125l4.0312-4.0312c0.6875 0.94922 1.0977 2.1094 1.0977 3.3711zm-1.0781-6.0312c-1.3008-1.0195-2.9297-1.6289-4.7109-1.6289-4.2305 0-7.6602 3.4414-7.6602 7.6602s3.4414 7.6602 7.6602 7.6602 7.6602-3.4414 7.6602-7.6602c0-1.7812-0.60938-3.4102-1.6289-4.7109l4.6211-4.6211c2.1914 2.5 3.5312 5.7617 3.5312 9.3281 0 7.8203-6.3594 14.191-14.191 14.191s-14.172-6.3672-14.172-14.188c0-7.8203 6.3594-14.191 14.191-14.191 3.5703 0 6.8281 1.3398 9.3281 3.5312z"></path> 
+</svg> 
+</div> 
+</div> 
+ <div class="u_1512390400 dmRespCol small-12 large-10 medium-10" id="1512390400"> <div class="u_1641716613 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1641716613" style="transition: opacity 1s ease-in-out;" data-dashlane-rid="fdc0820be21e437c"> <h3 style="letter-spacing: 0.02em;" class="size-18 m-size-14"><strong style="color:rgb(246, 247, 248);font-weight:bold;display:unset;font-family:Raleway, 'Raleway Fallback';" class="font-size-18 m-font-size-14">We Take Collaborative Action</strong></h3> 
+<p style="letter-spacing: 0.02em;"><span style="color:rgb(246, 247, 248);display:unset;font-family:Raleway, 'Raleway Fallback';">We don&rsquo;t just advise &mdash; we roll up our sleeves and get stuck in. Working side by side with your teams, we co-create solutions, deliver meaningful outcomes, and support you every step of the way. Together, we turn ideas into impact.</span></p></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespCol small-12 medium-6 large-6 u_1027604785" id="1027604785"> <span id="1215212987"></span> 
+ <div class="u_1106846542 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1106846542"><img src="https://le-cdn.website-editor.net/s/99e776e5cee443629d56c11963ddb328/dms3rep/multi/opt/IMG_3347-1920w.jpg?Expires=1768289662&Signature=ckgcCPt5sMwNAy3n2bW-5AA8HsFWuEacqutseGK5rb0ZnlIDsYhm9lR~V9sJ5eSvfSr-Vqn-3KaTnEw79FC20JijBjM1D0Irq8qRaWj6FdYQypLUqfksBIcJii9tAv4ylX2HJIY~qpkTsMCT6rogy24BWg~A4AtD2x0fAWcIr4edaMiHivZdl146i99ckeQbhukleyJ9XTH7UPEKm4ucQwmisgaHQY7WteAV3PYb5f2wlBQiJM9ePTKvJCMZWh6JTU~Lt-Z3emsNGwfgGFMXCLzIXX8c2ujHNvFkyzK7HnmGce6NNlglr1zPBVrM2Pk1IWzYYWaq1616XZgHySu53g__&Key-Pair-Id=K2NXBXLF010TJW" id="1464177519" class="" data-dm-image-path="https://cdn.website-editor.net/s/99e776e5cee443629d56c11963ddb328/dms3rep/multi/IMG_3347.jpg" data-hover-effect="zoomout" width="1920" height="2560" onerror="handleImageLoadError(this)"/></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow u_1556880916" id="1556880916"> <div class="dmRespColsWrapper" id="1192288945"> <div class="dmRespCol large-12 medium-12 small-12" id="1898856681"> <div class="u_1844832444 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1844832444" style="transition: opacity 1s ease-in-out; text-align: left; display: block;" data-dashlane-rid="9517df044dd60a6e" data-dashlane-classification="identity"> <h2 class="text-align-center m-size-26 size-32"><span style="color:rgb(57, 69, 85);display:unset;font-family:'Libre Baskerville', 'Libre Baskerville Fallback';" class="font-size-32 m-font-size-26">What our clients say about us</span></h2> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1443504355 dmRespRow" style="text-align: center;" id="1443504355"> <div class="dmRespColsWrapper" id="1018657395"> <div class="u_1434341328 dmRespCol small-12 medium-12 large-12" id="1434341328"> <div class="u_1963554449 flex-container dmImageSlider dmNoMargin dmNoMark" data-widget-type="imageSlider" dmle_volatile_widget="true" id="1963554449" data-element-type="dSliderId"> <div class="flexslider ed-version nav-layout-2" sliderscriptparams="{'stretch':true,'animation':true,'randomize':false,'directionNav':true,'isAutoPlay':true,'isFade':false,'controlNav':false,'slideshowSpeed':5000,'animationDuration':600,'pausePlay':true,'prevText':'','nextText':''}" id="1946509572" layout="center"> <ul class="slides" id="1838299865"> <li layout="center" position="center" animation="none" show-content="true" color-overlay="true" text-background="true" id="1851410807" class="u_1851410807" show-caption="false"><img dm="true" src="https://irt-cdn.multiscreensite.com/md/dmtmpl/dms3rep/multi/transparent_background.png" id="1663444478" class="" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1639388453"></div> 
+ <div class="slide-inner" id="1703229069"> <div class="text-wrapper" id="1207358015"> <h3 class="slide-title u_1738069116" id="1738069116">&quot;...a breath of fresh air and brings a great dynamic and innovative ideas...&quot;</h3> 
+ <p class="slide-text u_1731066047" id="1731066047"></p> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1353870174"> <span class="iconBg" id="1881828788"> <span class="icon hasFontIcon icon-star" id="1812226777"></span> 
+</span> 
+ <span class="text" id="1191347315">MashIt</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="none" show-content="true" color-overlay="true" text-background="true" id="1949480497" class="u_1949480497" show-caption="false"><img dm="true" src="https://irt-cdn.multiscreensite.com/md/dmtmpl/dms3rep/multi/transparent_background.png" id="1079836355" class="" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1439137575"></div> 
+ <div class="slide-inner" id="1360305003"> <div class="text-wrapper" id="1759423123"> <h3 class="slide-title u_1964691482" id="1964691482">&quot;Committed, passionate and delivery focussed.&quot;</h3> 
+ <p class="slide-text u_1235953039" id="1235953039"></p> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1372655209"> <span class="iconBg" id="1013775115"> <span class="icon hasFontIcon icon-star" id="1152662617"></span> 
+</span> 
+ <span class="text" id="1553215180">FabuFit</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="none" show-content="true" color-overlay="true" text-background="true" id="1694421348" class="u_1694421348" show-caption="false"><img dm="true" src="https://irt-cdn.multiscreensite.com/md/dmtmpl/dms3rep/multi/transparent_background.png" id="1412205318" class="" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1821284441"></div> 
+ <div class="slide-inner" id="1733145978"> <div class="text-wrapper" id="1082321789"> <h3 class="slide-title u_1038703768" id="1038703768">&quot;[Their] interpersonal skills and ability to build strong relationships have been instrumental in bridging the gap between IT and other departments.&quot;</h3> 
+ <p class="slide-text u_1299188296" id="1299188296"></p> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-visible" id="1249904931"> <span class="iconBg" id="1176876279"> <span class="icon hasFontIcon icon-star" id="1381874561"></span> 
+</span> 
+ <span class="text" id="1135261210">YesSuits</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="none" show-content="true" color-overlay="true" text-background="true" id="1732199271" class="" show-caption="true"><img dm="true" src="https://le-cdn.website-editor.net/s/99e776e5cee443629d56c11963ddb328/dms3rep/multi/opt/yellow+background-1920w.png?Expires=1768289662&Signature=C3AFBNH81~uXiFTVsgEAVoMnGS2J7yTuquWDdqDciGvtEvuVYW8lD4S~sS4~79ycAVYXr4Dz6LWlYWqgWE6SdQSZvU8jk~vCnIqdvllG3PXGew1C22cygnJd5--15W~D7iwmHh9cMzZb709-nsvwcJxo78eauhuIrllnCgKQlPItykZ1pibMKr3jT8d83XD81SItthd9yzfjIVIYrZUQXuTF4~QOLcuCbyFTkCvqbSIaVrtGdReutZPtQeLVloCycSQ4bad-yhvzufKO2nCigwo2kttZkqC5c5jfyP8RIdIKsnJOiOOVNHPInap7ef2l5~tiZtHcYMnw9B61eAAaGQ__&Key-Pair-Id=K2NXBXLF010TJW" id="1449075140" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1441829464"></div> 
+ <div class="slide-inner" id="1560942814"> <div class="text-wrapper" id="1604916889"> <h3 class="slide-title u_1560625318" id="1560625318">&quot;strategic and big picture thinking played a fundamental role in setting the basis for our organisation's Service Management strategy and ITIL implementation initiative.&quot;</h3> 
+ <div class="slide-text richText u_1144549600" id="1144549600" style=""><p class="rteBlock"><span style="color:rgb(61, 69, 83)">&quot;[Their] strategic and big picture thinking played a fundamental role in setting the basis for our organisation's Service Management strategy and ITIL implementation initiative.&quot;</span></p></div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1971415040"> <span class="iconBg" id="1785200444"> <span class="icon hasFontIcon icon-star" id="1305996120"></span> 
+</span> 
+ <span class="text" id="1557223254">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="none" show-content="true" color-overlay="true" text-background="true" id="1248162366" class="" show-caption="false"><img dm="true" src="https://le-cdn.website-editor.net/s/99e776e5cee443629d56c11963ddb328/dms3rep/multi/opt/yellow+background-1920w.png?Expires=1768289662&Signature=C3AFBNH81~uXiFTVsgEAVoMnGS2J7yTuquWDdqDciGvtEvuVYW8lD4S~sS4~79ycAVYXr4Dz6LWlYWqgWE6SdQSZvU8jk~vCnIqdvllG3PXGew1C22cygnJd5--15W~D7iwmHh9cMzZb709-nsvwcJxo78eauhuIrllnCgKQlPItykZ1pibMKr3jT8d83XD81SItthd9yzfjIVIYrZUQXuTF4~QOLcuCbyFTkCvqbSIaVrtGdReutZPtQeLVloCycSQ4bad-yhvzufKO2nCigwo2kttZkqC5c5jfyP8RIdIKsnJOiOOVNHPInap7ef2l5~tiZtHcYMnw9B61eAAaGQ__&Key-Pair-Id=K2NXBXLF010TJW" id="1433412413" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1745692570"></div> 
+ <div class="slide-inner" id="1373245611"> <div class="text-wrapper" id="1622364624"> <h3 class="slide-title u_1436762499" id="1436762499">&quot;...an incredible asset to any transformational organisation...&quot;</h3> 
+ <div class="slide-text richText u_1151400888" id="1151400888">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1716340718"> <span class="iconBg" id="1255708991"> <span class="icon hasFontIcon icon-star" id="1538075898"></span> 
+</span> 
+ <span class="text" id="1751112965">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="none" show-content="true" color-overlay="true" text-background="true" id="1899860201" class="" show-caption="false"><img dm="true" src="https://le-cdn.website-editor.net/s/99e776e5cee443629d56c11963ddb328/dms3rep/multi/opt/yellow+background-1920w.png?Expires=1768289662&Signature=C3AFBNH81~uXiFTVsgEAVoMnGS2J7yTuquWDdqDciGvtEvuVYW8lD4S~sS4~79ycAVYXr4Dz6LWlYWqgWE6SdQSZvU8jk~vCnIqdvllG3PXGew1C22cygnJd5--15W~D7iwmHh9cMzZb709-nsvwcJxo78eauhuIrllnCgKQlPItykZ1pibMKr3jT8d83XD81SItthd9yzfjIVIYrZUQXuTF4~QOLcuCbyFTkCvqbSIaVrtGdReutZPtQeLVloCycSQ4bad-yhvzufKO2nCigwo2kttZkqC5c5jfyP8RIdIKsnJOiOOVNHPInap7ef2l5~tiZtHcYMnw9B61eAAaGQ__&Key-Pair-Id=K2NXBXLF010TJW" id="1936694495" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1381119457"></div> 
+ <div class="slide-inner" id="1345063517"> <div class="text-wrapper" id="1722268654"> <h3 class="slide-title u_1353231640" id="1353231640">&quot;Results focussed with a clear understanding of how the wider team(s) involvement and collaboration is key.&quot;</h3> 
+ <div class="slide-text richText u_1470740319" id="1470740319">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1749428132"> <span class="iconBg" id="1025886250"> <span class="icon hasFontIcon icon-star" id="1186310132"></span> 
+</span> 
+ <span class="text" id="1216962028">Button</span> 
+</div> 
+</div> 
+</li> 
+</ul> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="sticky-widgets-container-global" id="1269133998"></div> 
+ <div class="dmFooterContainer"> <div id="fcontainer" class="f_hcontainer dmFooter p_hfcontainer"> <div dm:templateorder="250" class="dmFooterResp generalFooter" id="1943048428"> <div class="u_1465871800 dmRespRow dmFooterContent" id="1465871800"> <div class="dmRespColsWrapper" id="1995794985"> <div class="u_1572825853 dmRespCol small-12 medium-12 large-12" id="1572825853"> <span id="1064380661"></span> 
+ <div data-inject="impressum-paragraphText4" class="u_1431744165 dmNewParagraph" id="1431744165" style="display: block; transition: none 0s ease 0s;"> <div style="text-align: center;"><span style="color: rgb(217, 217, 217);" class="font-size-12 lh-1"><i><span style="font-weight:400;font-family:Raleway, 'Raleway Fallback';"></span></i></span></div> 
+ <span style="font-weight:400;font-family:Raleway, 'Raleway Fallback';"> <div style="text-align: center;"><span style="color: rgb(217, 217, 217); font-weight: inherit;" class="font-size-12 lh-1"><i><span style="font-weight: inherit;">&nbsp;</span>Lapis Consulting Services Ltd &copy; is a company registered in England and Wales with company number 13823672</i></span></div> 
+ <div style="text-align: center;"><span style="font-weight: inherit;" class="font-size-12 lh-1"><i style=""><a href="/privacy-policy" runtime_url="/privacy-policy" style=""><font style="color: rgb(238, 194, 16);">Privacy Policy</font></a></i></span></div> 
+</span> 
+ <div style="text-align: center;"><span style="" class="font-size-12 lh-1"><i style=""><a href="/privacy-policy" runtime_url="/privacy-policy" style=""><font style="color: rgb(238, 194, 16);"></font></a></i></span></div> 
+</div> <div class="u_1104120250 dmSpacer" id="1104120250" data-element-type="spacer"></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div id="1236746004" dmle_extension="powered_by" data-element-type="powered_by" icon="true" surround="false"></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+
+    </div>
+</div>
+<!--  Add full CSS and Javascript before the close tag of the body if needed -->
+<!-- ========= JS Section ========= -->
+<script>
+    var isWLR = true;
+
+    window.customWidgetsFunctions = {};
+    window.customWidgetsStrings = {};
+    window.collections = {};
+    window.currentLanguage = "ENGLISH_UK"
+    window.isSitePreview = false;
+</script>
+<script type="text/javascript">
+
+    var d_version = "production_6010";
+    var build = "2025-12-11T14_05_31";
+    window['v' + 'ersion'] = d_version;
+
+    function buildEditorParent() {
+        window.isMultiScreen = true;
+        window.editorParent = {};
+        window.previewParent = {};
+        window.assetsCacheQueryParam = "?version=2025-12-11T14_05_31";
+        try {
+            var _p = window.parent;
+            if (_p && _p.document && _p.$ && _p.$.dmfw) {
+                window.editorParent = _p;
+            } else if (_p.isSitePreview) {
+                window.previewParent = _p;
+            }
+        } catch (e) {
+
+        }
+    }
+
+    buildEditorParent();
+</script>
+
+<!-- Load jQuery -->
+<script type="text/javascript" id='d-js-jquery'
+        src="https://static-cdn.website-editor.net/libs/jquery/2.2.4/jquery.min.js"></script>
+<!-- End Load jQuery -->
+<!-- Injecting site-wide before scripts -->
+<script type="text/javascript" src="https://app.termly.io/resource-blocker/5c7323b0-f9ea-4999-985d-430dd38eea79?autoBlock=on" data-swh-uuid="0107c706c41d4973a0106de6235ea5dc">
+</script>
+<!-- End Injecting site-wide to the head -->
+
+
+<script>
+    var _jquery = window.$;
+
+    var jqueryAliases = ['$', 'jquery', 'jQuery'];
+
+    jqueryAliases.forEach((alias) => {
+        Object.defineProperty(window, alias, {
+            get() {
+                return _jquery;
+            },
+            set() {
+                console.warn("Trying to over-write the global jquery object!");
+            }
+        });
+    });
+    window.jQuery.migrateMute = true;
+</script>
+<script>
+    window.cookiesNotificationMarkupPreview = ' <div>In order to provide you with the best online experience this website uses cookies. By using our website, you agree to our use of cookies. <a href=\"\/privacy\" target=\"_blank\">More Info<\/a>.<\/div> \n';
+</script>
+
+<!-- HEAD RT JS Include -->
+<script id='d-js-params'>
+    window.INSITE = window.INSITE || {};
+    window.INSITE.device = "desktop";
+
+    window.rtCommonProps = {};
+    rtCommonProps["rt.ajax.ajaxScriptsFix"] =true;
+    rtCommonProps["rt.pushnotifs.sslframe.encoded"] = 'aHR0cHM6Ly97c3ViZG9tYWlufS5wdXNoLW5vdGlmcy5jb20=';
+    rtCommonProps["runtimecollector.url"] = 'https://rtc.website-editor.net';
+    rtCommonProps["performance.tabletPreview.removeScroll"] = 'false';
+    rtCommonProps["inlineEditGrid.snap"] =true;
+    rtCommonProps["popup.insite.cookie.ttl"] = '0.5';
+    rtCommonProps["rt.pushnotifs.force.button"] =true;
+    rtCommonProps["common.mapbox.token"] = 'pk.eyJ1IjoiZGFubnliMTIzIiwiYSI6ImNqMGljZ256dzAwMDAycXBkdWxwbDgzeXYifQ.Ck5P-0NKPVKAZ6SH98gxxw';
+    rtCommonProps["common.mapbox.js.override"] =false;
+    rtCommonProps["common.here.appId"] = 'iYvDjIQ2quyEu0rg0hLo';
+    rtCommonProps["common.here.appCode"] = '1hcIxLJcbybmtBYTD9Z1UA';
+    rtCommonProps["isCoverage.test"] =false;
+    rtCommonProps["ecommerce.ecwid.script"] = 'https://app.multiscreenstore.com/script.js';
+    rtCommonProps["common.resources.dist.cdn"] =true;
+    rtCommonProps["common.build.dist.folder"] = 'production/6010';
+    rtCommonProps["common.resources.cdn.host"] = 'https://static-cdn.website-editor.net';
+    rtCommonProps["common.resources.folder"] = 'https://static-cdn.website-editor.net/mnlt/production/6010';
+    rtCommonProps["feature.flag.runtime.backgroundSlider.preload.slowly"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.jitAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.sites.google.analytics.gtag"] =true;
+    rtCommonProps["feature.flag.runOnReadyNewTask"] =true;
+    rtCommonProps["isAutomation.test"] =false;
+    rtCommonProps["booking.cal.api.domain"] = 'api.cal.com';
+
+    
+    rtCommonProps['common.mapsProvider'] = 'mapbox';
+    
+    rtCommonProps['common.mapsProvider.version'] = '0.52.0';
+    rtCommonProps['common.geocodeProvider'] = 'mapbox';
+    rtCommonProps['server.for.resources'] = '';
+    rtCommonProps['feature.flag.lazy.widgets'] = true;
+    rtCommonProps['feature.flag.single.wow'] = false;
+    rtCommonProps['feature.flag.disallowPopupsInEditor'] = true;
+    rtCommonProps['feature.flag.mark.anchors'] = true;
+    rtCommonProps['captcha.public.key'] = '6LffcBsUAAAAAMU-MYacU-6QHY4iDtUEYv_Ppwlz';
+    rtCommonProps['captcha.invisible.public.key'] = '6LeiWB8UAAAAAHYnVJM7_-7ap6bXCUNGiv7bBPME';
+    rtCommonProps["images.sizes.small"] =160;
+    rtCommonProps["images.sizes.mobile"] =640;
+    rtCommonProps["images.sizes.tablet"] =1280;
+    rtCommonProps["images.sizes.desktop"] =1920;
+    rtCommonProps["modules.resources.cdn"] =true;
+    rtCommonProps["import.images.storage.imageCDN"] = 'https://le-cdn.website-editor.net/';
+    rtCommonProps["feature.flag.runtime.inp.threshold"] =150;
+    rtCommonProps["feature.flag.performance.logs"] =true;
+    rtCommonProps["site.widget.form.captcha.type"] = 'g_recaptcha';
+    rtCommonProps["friendly.captcha.site.key"] = 'FCMGSQG9GVNMFS8K';
+    rtCommonProps["cookiebot.mapbox.consent.category"] = 'marketing';
+    // feature flags that's used out of runtime module (in  legacy files)
+    rtCommonProps["platform.monolith.personalization.dateTimeCondition.popupMsgAction.moveToclient.enabled"] =true;
+    rtCommonProps["streamline.personalization.decodeTimeZone.enabled"] =true;
+
+    window.rtFlags = {};
+    rtFlags["unsuspendEcwidStoreOnRuntime.enabled"] =false;
+    rtFlags["scripts.widgetCount.enabled"] =true;
+    rtFlags["fnb.animations.tracking.enabled"] =true;
+    rtFlags["ecom.ecwidNewUrlStructure.enabled"] = false;
+    rtFlags["ecom.ecwid.accountPage.emptyBaseUrl.enabled"] = true;
+    rtFlags["ecom.ecwid.pages.links.disable.listeners"] = true;
+    rtFlags["ecom.ecwid.storefrontV3.enabled"] = false;
+    rtFlags["ecom.ecwid.old.store.fix.facebook.share"] = true;
+    rtFlags["feature.flag.photo.gallery.exact.size"] =true;
+    rtFlags["geocode.search.localize"] =false;
+    rtFlags["feature.flag.runtime.newAnimation.asyncInit.setTimeout.enabled"] =false;
+    rtFlags["twitter.heightLimit.enabled"] = true;
+    rtFlags["runtime.lottieOverflow"] =false;
+    rtFlags["runtime.monitoring.sentry.ignoreErrors"] = "";
+    rtFlags["contact.form.browserValidation.enabled"] =true;
+    rtFlags["streamline.monolith.personalization.supportMultipleConditions.enabled"] =false;
+    rtFlags["flex.animation.design.panel.layout"] =false;
+    rtFlags["runtime.cwv.report.cls.enabled"] =false;
+    rtFlags["runtime.cwv.report.lcp.enabled"] =false;
+    rtFlags["flex.runtime.popup.with.show"] =true;
+    rtFlags["contact.form.useActiveForm"] =true;
+    rtFlags["runtime.ssr.productStore.internal.observer"] =true;
+    rtFlags["runtime.ssr.productCustomizations"] =true;
+</script>
+<script src="https://static-cdn.website-editor.net/mnlt/production/6010/_dm/s/rt/dist/scripts/d-js-one-runtime-unified-desktop.min.js"  id="d-js-core"></script>
+<!-- End of HEAD RT JS Include -->
+<script>
+    
+    $(window).bind("orientationchange", function (e) {
+        $.layoutManager.initLayout();
+        
+    });
+    $(document).resize(function () {
+        
+    });
+</script>
+<script type="text/javascript" id="d_track_campaign">
+(function() {
+    if (!window.location.search) {
+        return;
+    }
+	const cleanParams = window.location.search.substring(1); // Strip ?
+	const queryParams = cleanParams.split('&');
+
+	const expires = 'expires=' + new Date().getTime() + 24 * 60 * 60 * 1000;
+	const domain = 'domain=' + window.location.hostname;
+	const path = "path=/";
+
+	queryParams.forEach((param) => {
+		const [key, value = ''] = param.split('=');
+		if (key.startsWith('utm_')) {
+			const cookieName = "_dm_rt_" + key.substring(4);
+			const cookie = cookieName + "=" + value;
+			const joined = [cookie, expires, domain, path].join(";");
+			document.cookie = joined;
+		}
+	});
+}());
+</script>
+<script type="text/javascript" >
+  var _dm_gaq = {};
+  var _gaq = _gaq || [];
+  var _dm_insite = [];
+</script>
+
+<script type="text/javascript" id="d_track_sp">
+;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
+p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
+};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
+n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d1dxoqu0t5mb7j.cloudfront.net/sp-2.0.0-dm-0.1.min.js","snowplow"));
+window.dmsnowplow  = window.snowplow;
+
+dmsnowplow('newTracker', 'cf', 'd1dxoqu0t5mb7j.cloudfront.net', { // Initialise a tracker
+  appId: '99e776e5cee443629d56c11963ddb328'
+});
+
+// snowplow queries element styles so we wait until CSS calculations are done.
+requestAnimationFrame(() => {
+	dmsnowplow('trackPageView');
+	_dm_insite.forEach((rule) => {
+		// Specifically in popup only the client knows if it is shown or not so we don't always want to track its impression here
+		// the tracking is in popup.js
+		if (rule.actionName !== "popup") {
+			dmsnowplow('trackStructEvent', 'insite', 'impression', rule.ruleType, rule.ruleId);
+		}
+		window?.waitForDeferred?.('dmAjax', () => {
+			$.DM.events.trigger('event-ruleTriggered', {value: rule});
+		});
+	});
+});
+</script>
+   <div style="display:none;" id="P6iryBW0Wu"></div>
+
+<!-- photoswipe markup -->
+
+
+
+
+
+
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="fb-root"
+        data-locale="en_GB"></div>
+<!-- Alias: 99e776e5cee443629d56c11963ddb328 -->
+<div class="dmPopupMask" id="dmPopupMask"></div>
+<div id="dmPopup" class="dmPopup">
+	<div class="dmPopupCloseWrapper"> <div class="dmPopupClose dm-common-icons-close oneIcon" onclick="dmHidePopup(event);"></div> </div>
+ 	<div class="dmPopupTitle"> <span></span> Share by:</div> 
+	<div class="data"></div>
+</div><script id="d_track_personalization">
+	window?.waitForDeferred?.('dmAjax', () => {
+		// Collects client data and updates cookies used by smart sites
+		window.expireDays = 365;
+		window.visitLength = 30 * 60000;
+		$.setCookie("dm_timezone_offset", (new Date()).getTimezoneOffset(), window.expireDays);
+			setSmartSiteCookiesInternal("dm_this_page_view","dm_last_page_view","dm_total_visits","dm_last_visit");
+	});
+</script>
+<script type="text/javascript">
+    
+    Parameters.NavigationAreaParams.MoreButtonText = '......';
+    
+    Parameters.NavigationAreaParams.LessButtonText = '......';
+    Parameters.HomeLinkText = 'Home';
+    </script>
+<!--  End Script tags -->
+<!--  Site Wide Html Markup -->
+<!--  Site Wide Html Markup -->
+<!--  Begin Product Custom HTML Markup -->
+<script>
+function call1and1Tracking() {
+	var externalId = dmAPI.getSiteExternalId();
+	var siteName = dmAPI.getSiteName();
+	var src = 'https://integration.mywebsite-editor.com/dakota-snippet-service/snippet/integration/snippet.js?sitename='+siteName+'&external_uid='+externalId+'&mode=visit'
+	var tracking = document.createElement('script');
+     tracking.setAttribute('src',src);
+   	document.head.appendChild(tracking);
+}
+call1and1Tracking();
+</script><!--  End Product Custom HTML Markup -->
+</body>
+</html>

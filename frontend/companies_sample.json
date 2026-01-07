@@ -1,0 +1,33 @@
+﻿{
+    "value":  [
+                  {
+                      "id":  "351e194a-662d-478b-8393-8b3563ec219c",
+                      "name":  "Google",
+                      "domain":  "www.google.com",
+                      "industry":  "Technology",
+                      "description":  "Google is a technology company that provides internet services such as search, email, and images.",
+                      "email":  "info@google.com",
+                      "phone":  "N/A",
+                      "location":  "Mountain View, California, USA",
+                      "ceo":  "N/A",
+                      "lastAnalyzed":  "2025-12-18",
+                      "extractionScore":  95,
+                      "created_at":  "2025-12-18T04:41:19.149000"
+                  },
+                  {
+                      "id":  "67cb0a01-c5e1-41d0-a464-51503139700d",
+                      "name":  "Microsoft",
+                      "domain":  "www.microsoft.com",
+                      "industry":  "Technology",
+                      "description":  "Microsoft is a technology company that develops and sells computer software, personal computers, and other electronics.",
+                      "email":  "info@microsoft.com",
+                      "phone":  "N/A",
+                      "location":  "Redmond, Washington, USA",
+                      "ceo":  "Satya Nadella",
+                      "lastAnalyzed":  "2025-12-18",
+                      "extractionScore":  95,
+                      "created_at":  "2025-12-18T03:19:28.194000"
+                  }
+              ],
+    "Count":  2
+}

@@ -1,0 +1,186 @@
+{
+  "company_name": {
+    "value": "Excel Lasers | Laser products, services and expertise",
+    "confidence": 0.8,
+    "source": [
+      "title",
+      "h1"
+    ]
+  },
+  "domain": {
+    "value": "excellasers.com",
+    "confidence": 1.0,
+    "source": [
+      "input"
+    ]
+  },
+  "logo_url": {
+    "value": "https://excellasers.com/favicon.ico",
+    "confidence": 0.7,
+    "source": [
+      "img",
+      "fallback"
+    ]
+  },
+  "industry": {
+    "value": "Cyber Security",
+    "confidence": 0.6,
+    "source": [
+      "keyword"
+    ]
+  },
+  "sub_industry": {
+    "value": "Technology Services",
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "short_description": {
+    "value": "Company website",
+    "confidence": 0.8,
+    "source": [
+      "meta"
+    ]
+  },
+  "long_description": {
+    "value": "Company website",
+    "confidence": 0.6,
+    "source": [
+      "meta"
+    ]
+  },
+  "products_services": {
+    "value": [
+      "About usThe teamOur storyCertificationTestimonials",
+      "The team",
+      "Our story",
+      "Certification",
+      "Testimonials",
+      "MedicalLaser surgeryEVLASmoke evacuationInfiltration pump",
+      "Laser surgery",
+      "Smoke evacuation",
+      "Infiltration pump",
+      "Laser therapy"
+    ],
+    "confidence": 0.6,
+    "source": [
+      "li"
+    ]
+  },
+  "headquarters": {
+    "value": "United Kingdom",
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "full_address": {
+    "value": "Find out more Veterinary Medical Products Services Contact us Excel Lasers Great Bradley Hall Newmarket CB8 9LT United Kingdom +44 (0)1440 783201 info@excellasers",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "office_locations": {
+    "value": [
+      "United Kingdom"
+    ],
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "key_people": {
+    "value": [
+      "Not Publicly Listed"
+    ],
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "contact_email": {
+    "value": "info@excellasers.com",
+    "confidence": 0.7,
+    "source": [
+      "regex",
+      "fallback"
+    ]
+  },
+  "contact_phone": {
+    "value": "01440 783201",
+    "confidence": 0.6,
+    "source": [
+      "regex",
+      "fallback"
+    ]
+  },
+  "sales_phone": {
+    "value": "+44 (0)1440 783201",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "fax": {
+    "value": "Not Available",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "mobile": {
+    "value": "Not Available",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "other_numbers": {
+    "value": "None",
+    "confidence": 0.4,
+    "source": [
+      "regex"
+    ]
+  },
+  "contact_page": {
+    "value": "https://excellasers.com/contact",
+    "confidence": 0.6,
+    "source": [
+      "heuristic"
+    ]
+  },
+  "hours_of_operation": {
+    "value": "Business Hours",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "hq_indicator": {
+    "value": "Yes",
+    "confidence": 0.6,
+    "source": [
+      "default"
+    ]
+  },
+  "tech_stack_signals": {
+    "value": [
+      "WordPress",
+      "jQuery"
+    ],
+    "confidence": 0.7,
+    "source": [
+      "html"
+    ]
+  },
+  "founded_year": {
+    "value": "2016",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "missing_fields": []
+}

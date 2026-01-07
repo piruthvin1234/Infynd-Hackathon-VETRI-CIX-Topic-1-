@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VETRI DQX // OMNI-COCKPIT</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-purple: #bc13fe;
+            --neon-green: #0aff68;
+            --neon-red: #ff0055;
+            --bg-dark: #050508;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(0, 243, 255, 0.2);
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-dark);
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            overflow: hidden; /* Prevent scroll for the cockpit feel */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1200px; /* Essential for 3D effect */
+        }
+
+        /* --- Background Effects --- */
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0.6;
+        }
+
+        .grid-floor {
+            position: absolute;
+            bottom: -20%;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 40px 40px;
+            transform: rotateX(80deg);
+            mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 60%);
+            z-index: 0;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: rotateX(80deg) translateY(0); }
+            100% { transform: rotateX(80deg) translateY(40px); }
+        }
+
+        /* --- The Cockpit Container --- */
+        .cockpit-container {
+            width: 90%;
+            max-width: 1400px;
+            height: 85vh;
+            display: grid;
+            grid-template-columns: 250px 1fr 300px;
+            grid-template-rows: auto 1fr 250px;
+            gap: 20px;
+            transform-style: preserve-3d; /* Key for nested 3D elements */
+            transition: transform 0.1s ease-out;
+        }
+
+        /* --- Panels & Cards --- */
+        .panel {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.05);
+            position: relative;
+            transform: translateZ(20px); /* Pop out slightly */
+        }
+        
+        .panel::before {
+            /* Decorative Corner */
+            content: ''; position: absolute; top: -1px; left: -1px; width: 10px; height: 10px;
+            border-top: 2px solid var(--neon-blue); border-left: 2px solid var(--neon-blue);
+        }
+
+        h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        /* --- 1. Hologram Bar Graph (CSS 3D) --- */
+        .holo-graph-container {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            padding-bottom: 20px;
+        }
+
+        .bar-wrapper {
+            width: 40px;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.3s;
+        }
+        
+        /* The 3D Bar */
+        .bar-3d {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            /* Height set by JS */
+            background: rgba(139, 92, 246, 0.2); /* Purple tint */
+            border: 1px solid var(--neon-purple);
+            transform-origin: bottom center;
+            animation: growBar 1.5s ease-out forwards;
+            box-shadow: 0 0 15px var(--neon-purple);
+        }
+
+        /* Sides of the bar to make it look 3D */
+        .bar-3d::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 10px; height: 100%;
+            background: rgba(139, 92, 246, 0.4);
+            transform: rotateY(-90deg) translateX(-50%);
+            transform-origin: left;
+        }
+        .bar-3d::after {
+            content: ''; position: absolute; top: 0; right: 0; width: 10px; height: 100%;
+            background: rgba(139, 92, 246, 0.4);
+            transform: rotateY(90deg) translateX(50%);
+            transform-origin: right;
+        }
+        .bar-top {
+            position: absolute; top: 0; left: 0; width: 100%; height: 10px;
+            background: var(--neon-purple);
+            transform: rotateX(90deg) translateY(-50%);
+            transform-origin: top;
+            box-shadow: 0 0 20px var(--neon-purple);
+        }
+
+        .bar-label {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%) rotateX(-20deg);
+            font-size: 12px;
+            color: #ccc;
+            white-space: nowrap;
+        }
+
+        @keyframes growBar { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+
+        /* --- 2. Tech Stack Signals (Gauges) --- */
+        .tech-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 5px;
+        }
+        .tech-bar-bg {
+            flex: 1; height: 4px; background: #222; margin: 0 10px; position: relative;
+        }
+        .tech-bar-fill {
+            height: 100%; background: var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green);
+            position: relative;
+        }
+        .tech-bar-fill::after {
+            content: ''; position: absolute; right: 0; top: -2px; width: 2px; height: 8px; background: #fff;
+        }
+
+        /* --- 3. Overview Cards (Floating) --- */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            grid-column: 1 / -1; /* Span full width */
+            margin-bottom: 20px;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.5) 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            transform: translateZ(40px); /* Float higher */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .stat-value { font-size: 24px; font-weight: 700; color: #fff; }
+        .stat-label { font-size: 12px; color: #888; text-transform: uppercase; }
+
+        /* --- Layout Specifics --- */
+        .main-chart-area { grid-column: 1 / 3; grid-row: 2 / 3; }
+        .side-panel { grid-column: 3 / 4; grid-row: 2 / 4; display: flex; flex-direction: column; gap: 20px; }
+        .bottom-feed { grid-column: 1 / 3; grid-row: 3 / 4; }
+
+    </style>
+</head>
+<body>
+
+    <div class="scanlines"></div>
+    <div class="grid-floor"></div>
+
+    <div class="cockpit-container" id="cockpit">
+        
+        <div class="overview-grid">
+            <div class="stat-card" style="border-bottom: 2px solid var(--neon-red);">
+                <div style="display:flex; justify-content:space-between;">
+                    <i data-lucide="zap" color="var(--neon-red)"></i>
+                    <span class="stat-value" style="color:var(--neon-red)">4.2 req/s</span>
+                </div>
+                <div class="stat-label">Extraction Velocity</div>
+            </div>
+            <div class="stat-card" style="border-bottom: 2px solid var(--neon-green);">
+                <div style="display:flex; justify-content:space-between;">
+                    <i data-lucide="activity" color="var(--neon-green)"></i>
+                    <span class="stat-value" style="color:var(--neon-green)">98.4%</span>
+                </div>
+                <div class="stat-label">Data Accuracy</div>
+            </div>
+            <div class="stat-card" style="border-bottom: 2px solid var(--neon-blue);">
+                <div style="display:flex; justify-content:space-between;">
+                    <i data-lucide="globe" color="var(--neon-blue)"></i>
+                    <span class="stat-value" style="color:var(--neon-blue)">15,402</span>
+                </div>
+                <div class="stat-label">Domains Scanned</div>
+            </div>
+            <div class="stat-card" style="border-bottom: 2px solid var(--neon-purple);">
+                <div style="display:flex; justify-content:space-between;">
+                    <i data-lucide="users" color="var(--neon-purple)"></i>
+                    <span class="stat-value" style="color:var(--neon-purple)">1,248</span>
+                </div>
+                <div class="stat-label">Identified Leads</div>
+            </div>
+        </div>
+
+        <div class="panel main-chart-area">
+            <h3><i data-lucide="bar-chart-3" style="vertical-align: middle; margin-right:8px;"></i> Extraction Efficiency (Hologram)</h3>
+            <p style="font-size:12px; color:#666; margin-bottom: 30px;">3D Visualization of processing times per module</p>
+            
+            <div class="holo-graph-container" id="holoGraph">
+                </div>
+        </div>
+
+        <div class="side-panel">
+            <div class="panel" style="flex: 1;">
+                <h3>Industry Breakdown</h3>
+                <canvas id="pieCanvas" width="280" height="200"></canvas>
+                <div id="pieLegend" style="margin-top:10px; font-size:12px;"></div>
+            </div>
+
+            <div class="panel" style="flex: 1;">
+                <h3>Tech Stack Signals</h3>
+                <div id="techStackList">
+                    </div>
+            </div>
+        </div>
+
+        <div class="panel bottom-feed">
+            <h3>Analysis Trends</h3>
+            <canvas id="trendCanvas" width="800" height="150"></canvas>
+        </div>
+
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // --- 1. CONFIG & DATA ---
+        const barData = [
+            { name: 'Meta', time: 0.8 },
+            { name: 'Signals', time: 1.2 },
+            { name: 'People', time: 2.1 },
+            { name: 'Deep Scrape', time: 4.5 },
+            { name: 'LLM Proc', time: 3.2 }
+        ];
+
+        const industryData = [
+            { name: 'Technology', value: 40, color: '#00f3ff' },
+            { name: 'Finance', value: 25, color: '#bc13fe' },
+            { name: 'Healthcare', value: 20, color: '#0aff68' },
+            { name: 'Retail', value: 15, color: '#ff0055' },
+        ];
+
+        const techStack = [
+            { name: 'React', count: 850, max: 1000 },
+            { name: 'Node.js', count: 640, max: 1000 },
+            { name: 'AWS', count: 520, max: 1000 },
+            { name: 'Docker', count: 410, max: 1000 }
+        ];
+
+        // --- 2. RENDER FUNCTIONS ---
+
+        // A. Render Hologram Bars
+        const graphContainer = document.getElementById('holoGraph');
+        const maxTime = Math.max(...barData.map(d => d.time));
+
+        barData.forEach(d => {
+            const heightPerc = (d.time / maxTime) * 100;
+            
+            const wrapper = document.createElement('div');
+            wrapper.className = 'bar-wrapper';
+            
+            wrapper.innerHTML = `
+                <div class="bar-3d" style="height: ${heightPerc}%;">
+                    <div class="bar-top"></div>
+                </div>
+                <div class="bar-label">${d.name} (${d.time}s)</div>
+            `;
+            graphContainer.appendChild(wrapper);
+        });
+
+        // B. Render Tech Stack
+        const techContainer = document.getElementById('techStackList');
+        techStack.forEach(t => {
+            const perc = (t.count / t.max) * 100;
+            const div = document.createElement('div');
+            div.className = 'tech-row';
+            div.innerHTML = `
+                <span style="font-size:12px; width:60px;">${t.name}</span>
+                <div class="tech-bar-bg">
+                    <div class="tech-bar-fill" style="width: ${perc}%"></div>
+                </div>
+                <span style="font-size:12px; color:#888;">${t.count}</span>
+            `;
+            techContainer.appendChild(div);
+        });
+
+        // C. Render Canvas Charts (Pie & Trend)
+        function drawCharts() {
+            // Pie Chart
+            const pCtx = document.getElementById('pieCanvas').getContext('2d');
+            const centerX = 140; const centerY = 100; const radius = 80;
+            let startAngle = 0;
+
+            industryData.forEach(slice => {
+                const sliceAngle = (slice.value / 100) * 2 * Math.PI;
+                pCtx.beginPath();
+                pCtx.moveTo(centerX, centerY);
+                pCtx.arc(centerX, centerY, radius, startAngle, startAngle + sliceAngle);
+                pCtx.fillStyle = slice.color;
+                pCtx.fill();
+                // Glow
+                pCtx.shadowColor = slice.color;
+                pCtx.shadowBlur = 15;
+                pCtx.stroke();
+                pCtx.shadowBlur = 0;
+
+                startAngle += sliceAngle;
+            });
+            // Center Hole (Donut)
+            pCtx.beginPath();
+            pCtx.arc(centerX, centerY, 40, 0, 2 * Math.PI);
+            pCtx.fillStyle = '#050508'; // Matches bg
+            pCtx.fill();
+
+            // Trend Chart (Simple Line)
+            const tCtx = document.getElementById('trendCanvas').getContext('2d');
+            const w = 800; const h = 150;
+            tCtx.beginPath();
+            tCtx.moveTo(0, h);
+            for(let i=0; i<=w; i+=50) {
+                const y = h - (Math.random() * 100 + 20);
+                tCtx.lineTo(i, y);
+            }
+            tCtx.strokeStyle = '#00f3ff';
+            tCtx.lineWidth = 2;
+            tCtx.shadowColor = '#00f3ff';
+            tCtx.shadowBlur = 10;
+            tCtx.stroke();
+            
+            // Fill area
+            tCtx.lineTo(w, h);
+            tCtx.fillStyle = 'rgba(0, 243, 255, 0.1)';
+            tCtx.fill();
+        }
+
+        drawCharts();
+
+        // --- 3. OMNI-DIMENSIONAL PARALLAX EFFECT ---
+        const cockpit = document.getElementById('cockpit');
+
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            // Calculate rotation degrees (small subtle movements)
+            const rotateX = (0.5 - y) * 10; // Tilt up/down
+            const rotateY = (x - 0.5) * 10; // Tilt left/right
+
+            cockpit.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+    </script>
+</body>
+</html>

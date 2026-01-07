@@ -1,0 +1,186 @@
+{
+  "company_name": {
+    "value": "Reliable Fully Managed IT Services | Aztec IT",
+    "confidence": 0.8,
+    "source": [
+      "title",
+      "h1"
+    ]
+  },
+  "domain": {
+    "value": "aztec.support",
+    "confidence": 1.0,
+    "source": [
+      "input"
+    ]
+  },
+  "logo_url": {
+    "value": "https://aztec.support/wp-content/uploads/Aztec-Logo.svg",
+    "confidence": 0.7,
+    "source": [
+      "img",
+      "fallback"
+    ]
+  },
+  "industry": {
+    "value": "Cyber Security",
+    "confidence": 0.6,
+    "source": [
+      "keyword"
+    ]
+  },
+  "sub_industry": {
+    "value": "Technology Services",
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "short_description": {
+    "value": "Our team of IT professionals have over two decades of experience providing comprehensive fully managed IT services and robust cybersecurity solutions across Sussex and Hampshire.",
+    "confidence": 0.8,
+    "source": [
+      "meta"
+    ]
+  },
+  "long_description": {
+    "value": "Our team of IT professionals have over two decades of experience providing comprehensive fully managed IT services and robust cybersecurity solutions across Sussex and Hampshire.",
+    "confidence": 0.6,
+    "source": [
+      "meta"
+    ]
+  },
+  "products_services": {
+    "value": [
+      "IT Infrastructure Management Services",
+      "Server Backup",
+      "Cloud Services",
+      "Modern Desktop",
+      "Microsoft Copilot",
+      "IT Support Pricing",
+      "MyGlue Business Password Management & Document Collaboration",
+      "Cyber Essentials & Cyber Essentials Plus Certification",
+      "Microsoft Office 365 Cyber Security",
+      "Sophos Cyber Security"
+    ],
+    "confidence": 0.6,
+    "source": [
+      "li"
+    ]
+  },
+  "headquarters": {
+    "value": "United Kingdom",
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "full_address": {
+    "value": "\" Jay Thacker, Yellowstone Environmental General Manager Get in Touch Name Email Contact number Company Name Additional information Send 01243 200 175 Option 1 for Support Option 2 for Sales Option 3 for Finance IT Support Cyber Security Cloud Modern Desktop Connectivity Voice About Blogs & Advice Our Locations Aztec are proud to demonstrate ISO 27001 Information Security Certification Aztec are an ISO 9001 Quality Management Company Contact Us:\u00a0 08:00 \u2013 17:00 01243 200 175 Office: 5 & 5A The Courtyard Trident Business Park Chichester Road PO20 9DY ISMS and Quality Policies Modern Slavery Policy Website Disclaimer Privacy Policy IT Support Sussex IT Support Hampshire \u00a9 2025 Aztec Computers Ltd | Registered Company in England Wales Number 4301156 | ICO Registration Z6610899 | VAT GB 864 3897 73",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "office_locations": {
+    "value": [
+      "United Kingdom"
+    ],
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "key_people": {
+    "value": [
+      "Not Publicly Listed"
+    ],
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "contact_email": {
+    "value": "info@aztec.support",
+    "confidence": 0.7,
+    "source": [
+      "regex",
+      "fallback"
+    ]
+  },
+  "contact_phone": {
+    "value": "01243 200 175",
+    "confidence": 0.6,
+    "source": [
+      "regex",
+      "fallback"
+    ]
+  },
+  "sales_phone": {
+    "value": "01243 200 175",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "fax": {
+    "value": "Not Available",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "mobile": {
+    "value": "Not Available",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "other_numbers": {
+    "value": "00 01243 200 175, 864 3897 73",
+    "confidence": 0.4,
+    "source": [
+      "regex"
+    ]
+  },
+  "contact_page": {
+    "value": "https://aztec.support/contact",
+    "confidence": 0.6,
+    "source": [
+      "heuristic"
+    ]
+  },
+  "hours_of_operation": {
+    "value": "Business Hours",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "hq_indicator": {
+    "value": "Yes",
+    "confidence": 0.6,
+    "source": [
+      "default"
+    ]
+  },
+  "tech_stack_signals": {
+    "value": [
+      "WordPress",
+      "jQuery"
+    ],
+    "confidence": 0.7,
+    "source": [
+      "html"
+    ]
+  },
+  "founded_year": {
+    "value": "2025",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "missing_fields": []
+}

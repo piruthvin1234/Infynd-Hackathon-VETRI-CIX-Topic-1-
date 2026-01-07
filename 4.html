@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cybernetic Data Core v1.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #04070c;
+            --panel-bg: rgba(12, 20, 35, 0.7);
+            --primary-cyan: #00eaff;
+            --secondary-blue: #0075ff;
+            --accent-purple: #9d00ff;
+            --accent-gold: #ffb300;
+            --text-muted: #6a89a8;
+            --text-bright: #e1f1ff;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-color);
+            /* Subtle tech background pattern */
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 234, 255, 0.05) 0%, transparent 40%),
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 50px 50px, 50px 50px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Chakra Petch', sans-serif;
+            color: var(--text-bright);
+            overflow: hidden;
+        }
+
+        .dashboard-header {
+            position: absolute;
+            top: 30px;
+            left: 50px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+        .dashboard-header h1 { margin: 0; font-size: 24px; color: var(--primary-cyan); }
+        .dashboard-header small { color: var(--text-muted); font-family: 'Rajdhani', sans-serif; letter-spacing: 2px;}
+
+        .container {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+            padding: 40px;
+            background: radial-gradient(ellipse at center, rgba(0,117,255,0.05) 0%, transparent 70%);
+            border-radius: 30px;
+            border: 1px solid rgba(0, 234, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .viz-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .viz-title {
+            font-family: 'Rajdhani', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-bottom: 2px solid var(--secondary-blue);
+            padding-bottom: 5px;
+        }
+
+        canvas {
+            /* Subtle reflection effect */
+            -webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.2));
+        }
+
+        /* Legend styling */
+        .legend {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 14px;
+        }
+        .legend-item { display: flex; align-items: center; color: var(--text-muted); }
+        .dot { width: 8px; height: 8px; margin-right: 8px; border-radius: 2px; box-shadow: 0 0 5px currentColor;}
+
+    </style>
+</head>
+<body>
+
+<div class="dashboard-header">
+    <h1>Cybernetic Core</h1>
+    <small>System Analytics Module // Professional Grade</small>
+</div>
+
+<div class="container">
+    
+    <div class="viz-panel">
+        <div class="viz-title">Project Distribution // Orbital Scan</div>
+        <canvas id="gyroCanvas" width="350" height="350"></canvas>
+        <div class="legend" id="gyroLegend"></div>
+    </div>
+
+    <div class="viz-panel">
+        <div class="viz-title">Resource Load // Conduit Array</div>
+        <canvas id="conduitCanvas" width="450" height="350"></canvas>
+    </div>
+
+</div>
+
+<script>
+    const timeStep = 0.02;
+    let globalTime = 0;
+
+    // =========================================
+    // VIZ 1: ORBITAL DATA GYROSCOPE (Pie Replacement)
+    // =========================================
+    const gCanvas = document.getElementById('gyroCanvas');
+    const gCtx = gCanvas.getContext('2d');
+    const gLegend = document.getElementById('gyroLegend');
+
+    const gyroData = [
+        { label: "Infrastructure", value: 40, color: "#00eaff" }, // Cyan
+        { label: "AI Models", value: 25, color: "#9d00ff" },      // Purple
+        { label: "Security", value: 20, color: "#0075ff" },       // Blue
+        { label: "R&D", value: 15, color: "#ffb300" }             // Gold
+    ];
+
+    // Populate Legend
+    gyroData.forEach(d => {
+        gLegend.innerHTML += `
+            <div class="legend-item">
+                <div class="dot" style="background-color:${d.color}; color:${d.color}"></div>
+                ${d.label} (${d.value}%)
+            </div>
+        `;
+    });
+
+    function drawGyroscope() {
+        gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+        const cx = gCanvas.width / 2;
+        const cy = gCanvas.height / 2;
+        
+        gCtx.lineWidth = 4;
+        gCtx.lineCap = 'round';
+
+        // Draw Central Core
+        gCtx.beginPath();
+        gCtx.arc(cx, cy, 25, 0, Math.PI * 2);
+        gCtx.fillStyle = "#0a1220";
+        gCtx.fill();
+        gCtx.strokeStyle = "rgba(0, 234, 255, 0.5)";
+        gCtx.stroke();
+        
+        // Core pulse
+        const pulse = Math.abs(Math.sin(globalTime * 0.5));
+        gCtx.shadowColor = "#00eaff";
+        gCtx.shadowBlur = 10 + pulse * 10;
+        gCtx.beginPath();
+        gCtx.arc(cx, cy, 10, 0, Math.PI * 2);
+        gCtx.fillStyle = "#00eaff";
+        gCtx.fill();
+        gCtx.shadowBlur = 0; // Reset shadow
+
+        let currentRadius = 50;
+        const radiusStep = 20;
+
+        gyroData.forEach((item, index) => {
+            // Calculate angles
+            // Start angle shifts slowly for rotation effect based on index
+            const rotationOffset = globalTime * (0.2 + index * 0.1) * (index % 2 === 0 ? 1 : -1); 
+            const startAngle = -Math.PI / 2 + rotationOffset;
+            const sliceAngle = (item.value / 100) * (Math.PI * 2);
+            const endAngle = startAngle + sliceAngle;
+
+            // 1. Draw Faint Orbital Track (Background ring)
+            gCtx.beginPath();
+            gCtx.arc(cx, cy, currentRadius, 0, Math.PI * 2);
+            gCtx.strokeStyle = "rgba(255, 255, 255, 0.05)";
+            gCtx.lineWidth = 1;
+            gCtx.stroke();
+
+            // 2. Draw Active Data Arc
+            gCtx.beginPath();
+            gCtx.arc(cx, cy, currentRadius, startAngle, endAngle);
+            gCtx.strokeStyle = item.color;
+            gCtx.lineWidth = 6;
+            gCtx.shadowColor = item.color;
+            gCtx.shadowBlur = 15;
+            gCtx.stroke();
+            gCtx.shadowBlur = 0;
+
+            // 3. Draw Orbital Node (Satellite at the end of the arc)
+            const nodeX = cx + Math.cos(endAngle) * currentRadius;
+            const nodeY = cy + Math.sin(endAngle) * currentRadius;
+
+            gCtx.beginPath();
+            gCtx.arc(nodeX, nodeY, 6, 0, Math.PI * 2);
+            gCtx.fillStyle = "#fff";
+            gCtx.fill();
+            gCtx.shadowColor = item.color;
+            gCtx.shadowBlur = 20;
+            gCtx.beginPath();
+            gCtx.arc(nodeX, nodeY, 3, 0, Math.PI * 2);
+            gCtx.fillStyle = item.color;
+            gCtx.fill();
+            gCtx.shadowBlur = 0;
+
+            // Increment radius for next ring
+            currentRadius += radiusStep;
+        });
+    }
+
+
+    // =========================================
+    // VIZ 2: PLASMA CONDUIT ARRAY (Bar Replacement)
+    // =========================================
+    const cCanvas = document.getElementById('conduitCanvas');
+    const cCtx = cCanvas.getContext('2d');
+
+    const conduitData = [
+        { label: "CPU 01", value: 85, color: "#00eaff" },
+        { label: "CPU 02", value: 60, color: "#0075ff" },
+        { label: "MEM A", value: 92, color: "#9d00ff" },
+        { label: "MEM B", value: 45, color: "#ffb300" },
+        { label: "NET I/O", value: 70, color: "#00eaff" },
+    ];
+
+    // Particle system for inside the plasma
+    let particles = [];
+    for(let i=0; i<30; i++) {
+        particles.push({
+            x: Math.random() * cCanvas.width,
+            y: Math.random() * cCanvas.height,
+            speed: 0.5 + Math.random() * 1.5,
+            size: Math.random() * 2
+        });
+    }
+
+    function drawConduits() {
+        cCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
+
+        const chartHeight = 250;
+        const bottomY = cCanvas.height - 40;
+        const topY = bottomY - chartHeight;
+        const startX = 40;
+        const colWidth = 40;
+        const gap = 35;
+
+        // Draw stylized grid lines behind charts
+        cCtx.strokeStyle = "rgba(255,255,255,0.03)";
+        cCtx.lineWidth = 1;
+        for(let i=0; i<=5; i++) {
+            const y = bottomY - (chartHeight/5)*i;
+            cCtx.beginPath();
+            cCtx.moveTo(startX - 10, y);
+            cCtx.lineTo(cCanvas.width - 20, y);
+            cCtx.stroke();
+            // Axis labels
+            cCtx.fillStyle = "rgba(255,255,255,0.3)";
+            cCtx.font = "10px Rajdhani";
+            cCtx.fillText(i*20 + "%", startX - 35, y + 3);
+        }
+
+        conduitData.forEach((item, i) => {
+            const x = startX + i * (colWidth + gap);
+            const targetHeight = (item.value / 100) * chartHeight;
+            const currentY = bottomY - targetHeight;
+
+            // 1. Draw Conduit Housing (Glass Tube)
+            cCtx.fillStyle = "rgba(12, 20, 35, 0.5)";
+            cCtx.strokeStyle = "rgba(0, 234, 255, 0.1)";
+            cCtx.lineWidth = 2;
+            // Main tube body
+            cCtx.fillRect(x, topY, colWidth, chartHeight);
+            cCtx.strokeRect(x, topY, colWidth, chartHeight);
+            
+            // 2. Draw Plasma Fill
+            cCtx.save();
+            // Clip to the filled area so particles don't escape
+            cCtx.beginPath();
+            cCtx.rect(x, currentY, colWidth, targetHeight);
+            cCtx.clip();
+
+            // Gradient fill
+            const grad = cCtx.createLinearGradient(x, bottomY, x, currentY);
+            grad.addColorStop(0, "rgba(0,0,0,0.1)");
+            grad.addColorStop(0.8, item.color);
+            grad.addColorStop(1, "#fff"); // Bright top
+            cCtx.fillStyle = grad;
+            cCtx.fillRect(x, currentY, colWidth, targetHeight);
+
+            // Draw rising particles inside the plasma
+            cCtx.fillStyle = "rgba(255,255,255,0.5)";
+            particles.forEach(p => {
+                // Only draw if particle is within this column horizontally
+                // A bit of a hack for demo simplicity, usually particles belong to specific columns
+                if(p.x > x && p.x < x + colWidth) {
+                    cCtx.beginPath();
+                    cCtx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+                    cCtx.fill();
+                }
+            });
+
+            cCtx.restore(); // End clipping
+
+            // 3. Energy Cap (Glowing top line)
+            cCtx.beginPath();
+            cCtx.moveTo(x, currentY);
+            cCtx.lineTo(x + colWidth, currentY);
+            cCtx.strokeStyle = "#fff";
+            cCtx.lineWidth = 3;
+            cCtx.shadowColor = item.color;
+            cCtx.shadowBlur = 20;
+            cCtx.stroke();
+            cCtx.shadowBlur = 0;
+
+            // 4. Labels & Value
+            cCtx.fillStyle = "var(--text-muted)";
+            cCtx.font = "600 12px Chakra Petch";
+            cCtx.textAlign = "center";
+            cCtx.fillText(item.label, x + colWidth/2, bottomY + 25);
+            
+            cCtx.fillStyle = item.color;
+            cCtx.fillText(item.value + "%", x + colWidth/2, currentY - 10);
+        });
+
+        // Update particles globally
+        particles.forEach(p => {
+            p.y -= p.speed;
+            if(p.y < topY) p.y = bottomY; // Reset to bottom
+        });
+    }
+
+    // --- MAIN ANIMATION LOOP ---
+    function animate() {
+        globalTime += timeStep;
+        drawGyroscope();
+        drawConduits();
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+</script>
+</body>
+</html>

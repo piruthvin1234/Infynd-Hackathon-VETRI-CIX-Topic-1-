@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfect Cyber-Rover Data Sentinel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            background-color: #030305;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Rajdhani', sans-serif;
+            color: #fff;
+            cursor: none; /* Custom cursor */
+        }
+
+        /* === Sci-Fi Background === */
+        .grid-floor {
+            position: absolute;
+            bottom: 0;
+            width: 200%;
+            height: 40%;
+            left: -50%;
+            background: 
+                linear-gradient(rgba(0, 243, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+            background-size: 60px 60px;
+            transform: perspective(600px) rotateX(70deg);
+            opacity: 0.4;
+            mask-image: linear-gradient(to top, rgba(0,0,0,1), transparent);
+            z-index: 1;
+        }
+        
+        .horizon-glow {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0, 243, 255, 0.1), transparent);
+            z-index: 0;
+        }
+
+        /* === UI Layer & Dropdown === */
+        .ui-layer {
+            position: absolute;
+            top: 30px; left: 30px;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .header-text {
+            border-left: 4px solid #00f3ff;
+            padding-left: 20px;
+        }
+        .header-text h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            margin: 0;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+        .header-text p {
+            font-size: 14px;
+            color: #00f3ff;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        /* Custom Dropdown Styling */
+        .vehicle-select {
+            position: relative;
+            width: 200px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .select-selected {
+            background-color: rgba(0, 243, 255, 0.1);
+            border: 2px solid #00f3ff;
+            color: #fff;
+            padding: 10px 15px;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+        }
+        .select-selected:after {
+            content: "";
+            width: 0; height: 0;
+            border: 6px solid transparent;
+            border-color: #00f3ff transparent transparent transparent;
+        }
+        .select-selected.select-arrow-active:after {
+            border-color: transparent transparent #00f3ff transparent;
+            top: 7px;
+        }
+        .select-items {
+            position: absolute;
+            background-color: rgba(3, 3, 5, 0.95);
+            border: 2px solid #00f3ff;
+            border-top: none;
+            z-index: 99;
+            top: 100%;
+            left: 0;
+            right: 0;
+            display: none;
+            box-shadow: 0 10px 20px rgba(0, 243, 255, 0.2);
+        }
+        .select-items div {
+            color: #fff;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+            transition: all 0.2s;
+        }
+        .select-items div:hover, .same-as-selected {
+            background-color: rgba(0, 243, 255, 0.3);
+            color: #00f3ff;
+            padding-left: 25px;
+        }
+        .select-hide { display: none; }
+
+        /* Custom Cursor */
+        .cursor {
+            position: absolute;
+            width: 20px; height: 20px;
+            border: 2px solid #fff;
+            transform: rotate(45deg);
+            pointer-events: none;
+            z-index: 100;
+            mix-blend-mode: overlay;
+        }
+
+        canvas {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="horizon-glow"></div>
+    <div class="grid-floor"></div>
+
+    <div class="ui-layer">
+        <div class="header-text">
+            <h1>CYBER-ROVER SENTINEL</h1>
+            <p>MOBILE DATA QUALITY UNIT // MK-V</p>
+        </div>
+        
+        <div class="vehicle-select">
+            <select id="carTypeSelect" style="display: none;">
+                <option value="rover">CYBER-ROVER</option>
+                <option value="speedster">SPEEDSTER</option>
+                <option value="tank">HEAVY TANK</option>
+            </select>
+            </div>
+    </div>
+
+    <div class="cursor" id="cursor"></div>
+
+    <canvas id="roverCanvas"></canvas>
+
+<script>
+    // --- DROPDOWN LOGIC ---
+    function setupCustomDropdown() {
+        const customSelect = document.getElementsByClassName("vehicle-select")[0];
+        const selElmnt = customSelect.getElementsByTagName("select")[0];
+
+        const selectedDiv = document.createElement("DIV");
+        selectedDiv.setAttribute("class", "select-selected");
+        selectedDiv.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+        customSelect.appendChild(selectedDiv);
+
+        const itemsDiv = document.createElement("DIV");
+        itemsDiv.setAttribute("class", "select-items select-hide");
+        
+        for (let i = 0; i < selElmnt.length; i++) {
+            const itemDiv = document.createElement("DIV");
+            itemDiv.innerHTML = selElmnt.options[i].innerHTML;
+            itemDiv.addEventListener("click", function(e) {
+                const selectBox = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                const selectedDisplay = this.parentNode.previousSibling;
+                for (let i = 0; i < selectBox.length; i++) {
+                    if (selectBox.options[i].innerHTML == this.innerHTML) {
+                        selectBox.selectedIndex = i;
+                        selectedDisplay.innerHTML = this.innerHTML;
+                        const sameAsSelected = this.parentNode.getElementsByClassName("same-as-selected");
+                        for (let k = 0; k < sameAsSelected.length; k++) {
+                            sameAsSelected[k].removeAttribute("class");
+                        }
+                        this.setAttribute("class", "same-as-selected");
+                        selectedDisplay.click();
+                        
+                        // Change Car Type
+                        currentCarType = selectBox.options[i].value;
+                        break;
+                    }
+                }
+            });
+            itemsDiv.appendChild(itemDiv);
+        }
+        customSelect.appendChild(itemsDiv);
+
+        selectedDiv.addEventListener("click", function(e) {
+            e.stopPropagation();
+            closeAllSelect(this);
+            this.nextSibling.classList.toggle("select-hide");
+            this.classList.toggle("select-arrow-active");
+        });
+    }
+
+    function closeAllSelect(elmnt) {
+        const items = document.getElementsByClassName("select-items");
+        const selected = document.getElementsByClassName("select-selected");
+        const arrNo = [];
+        for (let i = 0; i < selected.length; i++) {
+            if (elmnt == selected[i]) {
+                arrNo.push(i);
+            } else {
+                selected[i].classList.remove("select-arrow-active");
+            }
+        }
+        for (let i = 0; i < items.length; i++) {
+            if (arrNo.indexOf(i)) {
+                items[i].classList.add("select-hide");
+            }
+        }
+    }
+    document.addEventListener("click", closeAllSelect);
+    setupCustomDropdown();
+
+
+    // --- CANVAS & ANIMATION ---
+    const canvas = document.getElementById('roverCanvas');
+    const ctx = canvas.getContext('2d');
+    const cursor = document.getElementById('cursor');
+
+    let width, height;
+    let mouse = { x: 0, y: 0 };
+    let tilt = { x: 0, y: 0 };
+    let time = 0;
+    let currentCarType = 'rover'; // Default
+
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    document.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        tilt.x = (e.clientX / width - 0.5) * 20;
+        tilt.y = (e.clientY / height - 0.5) * 10;
+    });
+
+    // --- DATA ---
+    const dataRear = [
+        { label: "RAW INGEST", value: 45, color: "#ff0055" }, 
+        { label: "UNKNOWN", value: 20, color: "#ff5500" },    
+        { label: "FLAGGED", value: 35, color: "#ffcc00" }     
+    ];
+
+    const dataFront = [
+        { label: "CLEANSED", value: 65, color: "#00f3ff" },   
+        { label: "ENRICHED", value: 25, color: "#00ff66" },   
+        { label: "OPTIMIZED", value: 10, color: "#3366ff" }   
+    ];
+
+    // --- HELPERS ---
+    function drawHexagon(x, y, r, color) {
+        ctx.beginPath();
+        for (let i = 0; i < 6; i++) {
+            const angle = (Math.PI / 3) * i;
+            ctx.lineTo(x + r * Math.cos(angle), y + r * Math.sin(angle));
+        }
+        ctx.closePath();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+    }
+
+    // --- CLASSES ---
+    class Wheel {
+        constructor(data, color, isRear) {
+            this.data = data;
+            this.baseColor = color;
+            this.rotation = 0;
+            this.speed = isRear ? 0.02 : 0.02; 
+            this.radius = 80;
+        }
+
+        draw(cx, cy) {
+            this.rotation += this.speed;
+            
+            ctx.save();
+            ctx.translate(cx, cy);
+            
+            // Hub
+            ctx.beginPath();
+            ctx.arc(0, 0, 30, 0, Math.PI*2);
+            ctx.fillStyle = "#111";
+            ctx.fill();
+            drawHexagon(0, 0, 30, this.baseColor);
+
+            // Spokes/Slices
+            let startAngle = this.rotation;
+            const total = 100;
+            
+            this.data.forEach(item => {
+                const slice = (item.value / total) * Math.PI * 2;
+                const end = startAngle + slice;
+                
+                // Rim Arc
+                ctx.beginPath();
+                // Gap for visual clarity
+                ctx.arc(0, 0, this.radius, startAngle, end - 0.08);
+                ctx.strokeStyle = item.color;
+                ctx.lineWidth = 15;
+                ctx.shadowColor = item.color;
+                ctx.shadowBlur = 20; // Increased glow
+                ctx.stroke();
+                
+                // Connector spoke
+                const mid = startAngle + slice/2;
+                ctx.beginPath();
+                ctx.moveTo(Math.cos(mid)*30, Math.sin(mid)*30);
+                ctx.lineTo(Math.cos(mid)*(this.radius-10), Math.sin(mid)*(this.radius-10));
+                ctx.lineWidth = 2;
+                ctx.shadowBlur = 0;
+                ctx.stroke();
+
+                startAngle += slice;
+            });
+            
+            // Tire Tread Effect
+            ctx.beginPath();
+            ctx.arc(0, 0, this.radius + 15, 0, Math.PI*2);
+            ctx.strokeStyle = "rgba(255,255,255,0.1)";
+            ctx.lineWidth = 2;
+            ctx.setLineDash([5, 10]);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            ctx.restore();
+        }
+    }
+
+    class CarChassis {
+        constructor() {
+            this.rearWheel = new Wheel(dataRear, "#ff0055", true);
+            this.frontWheel = new Wheel(dataFront, "#00f3ff", false);
+        }
+
+        drawChassisShape(rearX, frontX, bodyY, type) {
+             ctx.beginPath();
+             if (type === 'rover') {
+                // Original Rover Shape
+                ctx.moveTo(rearX - 80, bodyY + 40);
+                ctx.lineTo(rearX - 60, bodyY - 40);
+                ctx.lineTo(frontX - 40, bodyY - 50);
+                ctx.lineTo(frontX + 100, bodyY + 10);
+                ctx.lineTo(frontX + 90, bodyY + 40);
+                ctx.lineTo(frontX - 60, bodyY + 40);
+                ctx.lineTo(frontX - 100, bodyY + 30); 
+                ctx.lineTo(rearX + 80, bodyY + 30); 
+                ctx.lineTo(rearX - 80, bodyY + 40);
+             } else if (type === 'speedster') {
+                // Sleek, Low Shape
+                ctx.moveTo(rearX - 60, bodyY + 30);
+                ctx.lineTo(rearX + 20, bodyY - 20); // Cabin start
+                ctx.lineTo(frontX - 80, bodyY - 30); // Cabin roof
+                ctx.lineTo(frontX + 120, bodyY + 20); // Long nose
+                ctx.lineTo(frontX + 110, bodyY + 30);
+                ctx.lineTo(rearX - 60, bodyY + 30);
+             } else if (type === 'tank') {
+                // Boxy, Heavy Shape
+                ctx.moveTo(rearX - 100, bodyY + 50);
+                ctx.lineTo(rearX - 100, bodyY - 30);
+                ctx.lineTo(frontX + 120, bodyY - 30);
+                ctx.lineTo(frontX + 140, bodyY + 0);
+                ctx.lineTo(frontX + 140, bodyY + 50);
+                ctx.lineTo(rearX - 100, bodyY + 50);
+             }
+             ctx.closePath();
+        }
+
+        draw(cx, cy) {
+            const hoverY = Math.sin(time * 0.05) * 5;
+            const bodyY = cy + hoverY - 60; 
+            const rearX = cx - 200;
+            const frontX = cx + 200;
+            const wheelY = cy + 40;
+
+            // 1. Draw Wheels
+            this.rearWheel.draw(rearX, wheelY);
+            this.frontWheel.draw(frontX, wheelY);
+
+            // 2. Draw Chassis Body
+            ctx.save();
+            
+            // Define Shape based on Type
+            this.drawChassisShape(rearX, frontX, bodyY, currentCarType);
+
+            // Glass Fill (Darker, more opaque for better text contrast)
+            const grad = ctx.createLinearGradient(rearX, 0, frontX, 0);
+            grad.addColorStop(0, "rgba(30, 0, 15, 0.95)"); 
+            grad.addColorStop(1, "rgba(0, 30, 45, 0.95)"); 
+            ctx.fillStyle = grad;
+            ctx.fill();
+
+            // Neon Outline
+            ctx.strokeStyle = "#fff";
+            ctx.lineWidth = 3;
+            ctx.shadowColor = "#00f3ff";
+            ctx.shadowBlur = 15;
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+
+            // 3. Draw The Splitter
+            const splitX = cx;
+            ctx.beginPath();
+            // Adjust splitter height based on car type
+            const topOffset = currentCarType === 'tank' ? 35 : 50;
+            ctx.moveTo(splitX, bodyY - topOffset);
+            ctx.lineTo(splitX, bodyY + 40);
+            ctx.strokeStyle = "rgba(255,255,255,0.5)";
+            ctx.lineWidth = 2;
+            ctx.setLineDash([5, 5]);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // 4. TEXT FIELDS (Fixed Alignment)
+            
+            // REAR PANEL
+            ctx.textAlign = "right";
+            // Adjust text start Y based on car type
+            let textY = bodyY - (currentCarType === 'tank' ? 15 : 30);
+            
+            ctx.fillStyle = "#ff0055";
+            ctx.font = "bold 16px 'Orbitron'";
+            ctx.fillText("SOURCE INGEST", splitX - 30, textY);
+            textY += 25;
+            
+            this.rearWheel.data.forEach(d => {
+                ctx.fillStyle = "#ccc";
+                ctx.font = "12px 'Rajdhani'";
+                ctx.fillText(d.label, splitX - 120, textY);
+                
+                // Bar Background
+                ctx.fillStyle = "rgba(255,255,255,0.1)";
+                ctx.fillRect(splitX - 110, textY - 10, 80, 8);
+                // Bar Fill
+                ctx.fillStyle = d.color;
+                ctx.shadowColor = d.color; ctx.shadowBlur = 5;
+                ctx.fillRect(splitX - 110, textY - 10, 80 * (d.value/100), 8);
+                ctx.shadowBlur = 0;
+
+                ctx.fillStyle = d.color;
+                ctx.font = "bold 14px 'Rajdhani'";
+                ctx.fillText(d.value + "%", splitX - 15, textY);
+                
+                textY += 22;
+            });
+
+            // FRONT PANEL
+            ctx.textAlign = "left";
+            textY = bodyY - (currentCarType === 'tank' ? 15 : 30);
+
+            ctx.fillStyle = "#00f3ff";
+            ctx.font = "bold 16px 'Orbitron'";
+            ctx.fillText("REFINED OUTPUT", splitX + 30, textY);
+            textY += 25;
+
+            this.frontWheel.data.forEach(d => {
+                ctx.fillStyle = "#ccc";
+                ctx.font = "12px 'Rajdhani'";
+                ctx.fillText(d.label, splitX + 30, textY);
+                
+                // Bar Background
+                ctx.fillStyle = "rgba(255,255,255,0.1)";
+                ctx.fillRect(splitX + 100, textY - 10, 80, 8);
+                // Bar Fill
+                ctx.fillStyle = d.color;
+                ctx.shadowColor = d.color; ctx.shadowBlur = 5;
+                ctx.fillRect(splitX + 100, textY - 10, 80 * (d.value/100), 8);
+                ctx.shadowBlur = 0;
+
+                ctx.fillStyle = d.color;
+                ctx.font = "bold 14px 'Rajdhani'";
+                ctx.fillText(d.value + "%", splitX + 190, textY);
+
+                textY += 22;
+            });
+
+            // 5. Underglow
+            ctx.globalCompositeOperation = "screen";
+            const glowGrad = ctx.createRadialGradient(cx, wheelY, 50, cx, wheelY, 450);
+            glowGrad.addColorStop(0, "rgba(0, 243, 255, 0.3)");
+            glowGrad.addColorStop(1, "transparent");
+            ctx.fillStyle = glowGrad;
+            ctx.fillRect(rearX - 120, wheelY, 640, 30);
+            ctx.globalCompositeOperation = "source-over";
+
+            ctx.restore();
+        }
+    }
+
+    // --- INIT & ANIMATE ---
+    const rover = new CarChassis();
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        time++;
+        const cx = width / 2 + tilt.x;
+        const cy = height / 2 + tilt.y;
+
+        rover.draw(cx, cy);
+
+        // Ground line
+        ctx.beginPath();
+        ctx.moveTo(0, cy + 120);
+        ctx.lineTo(width, cy + 120);
+        ctx.strokeStyle = "#00f3ff";
+        ctx.lineWidth = 2;
+        ctx.shadowColor = "#00f3ff";
+        ctx.shadowBlur = 15;
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+</script>
+</body>
+</html>

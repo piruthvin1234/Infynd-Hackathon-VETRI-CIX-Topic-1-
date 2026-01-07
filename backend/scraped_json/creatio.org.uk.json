@@ -1,0 +1,187 @@
+{
+  "company_name": {
+    "value": "Creatio Ltd",
+    "confidence": 0.8,
+    "source": [
+      "title",
+      "h1"
+    ]
+  },
+  "domain": {
+    "value": "creatio.org.uk",
+    "confidence": 1.0,
+    "source": [
+      "input"
+    ]
+  },
+  "logo_url": {
+    "value": "https://images.squarespace-cdn.com/content/v1/66dab60ee8a8d40d0bfb7496/09a33133-70d9-45de-8e47-b468ee0cc83f/Creatio+Logo.png?format=1500w",
+    "confidence": 0.7,
+    "source": [
+      "img",
+      "fallback"
+    ]
+  },
+  "industry": {
+    "value": "Cyber Security",
+    "confidence": 0.6,
+    "source": [
+      "keyword"
+    ]
+  },
+  "sub_industry": {
+    "value": "Technology Services",
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "short_description": {
+    "value": "We provide an intuitive, configurable SaaS solution called creatiogreen, \r\nsupporting a variety of organisations offering regulated or non-regulated \r\ntraining, courses, products or qualifications. These include Awarding \r\nOrganisations, Membership & Professional Bodies, Charities, Public Sector \r\nBodies, End-Point Assessment Organisations and Private Companies - helping \r\nthem to transform their processes.",
+    "confidence": 0.8,
+    "source": [
+      "meta"
+    ]
+  },
+  "long_description": {
+    "value": "We provide an intuitive, configurable SaaS solution called creatiogreen, \r\nsupporting a variety of organisations offering regulated or non-regulated \r\ntraining, courses, products or qualifications. These include Awarding \r\nOrganisations, Membership & Professional Bodies, Charities, Public Sector \r\nBodies, End-Point Assessment Organisations and Private Companies - helping \r\nthem to transform their processes.",
+    "confidence": 0.6,
+    "source": [
+      "meta"
+    ]
+  },
+  "products_services": {
+    "value": [
+      "Awarding Organisations (AOs)",
+      "Membership and Professional Bodies",
+      "Charities",
+      "Public Sector Bodies",
+      "End-Point Assessment Organisations (EPAOs)",
+      "Private Companies",
+      "Product Development",
+      "Customer Management",
+      "Register, Assess & Award",
+      "Governance"
+    ],
+    "confidence": 0.6,
+    "source": [
+      "li"
+    ]
+  },
+  "headquarters": {
+    "value": "United Kingdom",
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "full_address": {
+    "value": "Since 2008, we have provided our consultancy service many organisations, offering independent and proven: Expertise Insight Support Scrutiny Find Out More Meet the Team ALAN Founder & Managing Director LYNSEY Head of Client Delivery & Management EDMOND Head of Development ROSE Head of Corporate Governance & Operations View All Find Out More Get in touch to request a free demo, find out more about the solutions and services we offer, and how easy it is to upgrade to Creatio to transform your arrangements! Request a Demo 11 Crane Mews, 32 Gould Road, Twickenham, TW2 6RS | info@creatio",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "office_locations": {
+    "value": [
+      "United Kingdom"
+    ],
+    "confidence": 0.5,
+    "source": [
+      "default"
+    ]
+  },
+  "key_people": {
+    "value": [
+      "Not Publicly Listed"
+    ],
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "contact_email": {
+    "value": "info@creatio.org.uk",
+    "confidence": 0.7,
+    "source": [
+      "regex",
+      "fallback"
+    ]
+  },
+  "contact_phone": {
+    "value": "Not Available",
+    "confidence": 0.6,
+    "source": [
+      "regex",
+      "fallback"
+    ]
+  },
+  "sales_phone": {
+    "value": "Not Available",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "fax": {
+    "value": "Not Available",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "mobile": {
+    "value": "Not Available",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "other_numbers": {
+    "value": "None",
+    "confidence": 0.4,
+    "source": [
+      "regex"
+    ]
+  },
+  "contact_page": {
+    "value": "https://creatio.org.uk/contact",
+    "confidence": 0.6,
+    "source": [
+      "heuristic"
+    ]
+  },
+  "hours_of_operation": {
+    "value": "Business Hours",
+    "confidence": 0.4,
+    "source": [
+      "default"
+    ]
+  },
+  "hq_indicator": {
+    "value": "Yes",
+    "confidence": 0.6,
+    "source": [
+      "default"
+    ]
+  },
+  "tech_stack_signals": {
+    "value": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "confidence": 0.7,
+    "source": [
+      "html"
+    ]
+  },
+  "founded_year": {
+    "value": "2024",
+    "confidence": 0.5,
+    "source": [
+      "regex"
+    ]
+  },
+  "missing_fields": []
+}

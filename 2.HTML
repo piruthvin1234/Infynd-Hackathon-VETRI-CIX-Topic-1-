@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VETRI CIX - Ultimate Rover</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            background-color: #030305;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Rajdhani', sans-serif;
+            color: #fff;
+            cursor: none;
+        }
+
+        /* === Sci-Fi Background === */
+        .grid-floor {
+            position: absolute;
+            bottom: 0;
+            width: 200%;
+            height: 45%;
+            left: -50%;
+            background: 
+                linear-gradient(rgba(0, 243, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+            background-size: 80px 80px;
+            transform: perspective(600px) rotateX(75deg);
+            opacity: 0.3;
+            mask-image: linear-gradient(to top, rgba(0,0,0,1), transparent);
+            z-index: 1;
+        }
+        
+        .horizon-glow {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, rgba(0, 243, 255, 0.15), transparent);
+            z-index: 0;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            position: absolute;
+            width: 20px; height: 20px;
+            border: 2px solid #fff;
+            transform: rotate(45deg);
+            pointer-events: none;
+            z-index: 100;
+            mix-blend-mode: overlay;
+        }
+
+        canvas {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="horizon-glow"></div>
+    <div class="grid-floor"></div>
+    <div class="cursor" id="cursor"></div>
+    <canvas id="roverCanvas"></canvas>
+
+<script>
+    const canvas = document.getElementById('roverCanvas');
+    const ctx = canvas.getContext('2d');
+    const cursor = document.getElementById('cursor');
+
+    let width, height;
+    let time = 0;
+    let mouse = { x: 0, y: 0 };
+    let tilt = { x: 0, y: 0 };
+
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    document.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        // Subtle parallax tilt
+        tilt.x = (e.clientX / width - 0.5) * 15;
+        tilt.y = (e.clientY / height - 0.5) * 8;
+    });
+
+    // --- DATA ---
+    // Visual data only for the wheels
+    const dataRear = [
+        { value: 45, color: "#ff0055" }, 
+        { value: 20, color: "#ff5500" },    
+        { value: 35, color: "#ffcc00" }     
+    ];
+    const dataFront = [
+        { value: 65, color: "#00f3ff" },   
+        { value: 25, color: "#00ff66" },   
+        { value: 10, color: "#3366ff" }   
+    ];
+
+    // --- HELPER: Draw Hexagon Pattern ---
+    function drawHexHub(x, y, r, color) {
+        ctx.beginPath();
+        for (let i = 0; i < 6; i++) {
+            const angle = (Math.PI / 3) * i;
+            ctx.lineTo(x + r * Math.cos(angle), y + r * Math.sin(angle));
+        }
+        ctx.closePath();
+        ctx.fillStyle = "#000";
+        ctx.fill();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+    }
+
+    // --- CLASS: WHEEL ---
+    class Wheel {
+        constructor(data, color) {
+            this.data = data;
+            this.baseColor = color;
+            this.rotation = 0;
+            this.radius = 75;
+        }
+
+        draw(cx, cy) {
+            this.rotation += 0.05; // Fast spin
+            ctx.save();
+            ctx.translate(cx, cy);
+            
+            // 1. Inner Hub
+            drawHexHub(0, 0, 25, this.baseColor);
+
+            // 2. Data Slices (The Tire)
+            let startAngle = this.rotation;
+            const total = 100;
+            this.data.forEach(item => {
+                const slice = (item.value / total) * Math.PI * 2;
+                const end = startAngle + slice;
+                
+                ctx.beginPath();
+                ctx.arc(0, 0, this.radius, startAngle, end - 0.1);
+                ctx.strokeStyle = item.color;
+                ctx.lineWidth = 12;
+                ctx.shadowColor = item.color;
+                ctx.shadowBlur = 20;
+                ctx.stroke();
+
+                // Spokes
+                const mid = startAngle + slice/2;
+                ctx.beginPath();
+                ctx.moveTo(Math.cos(mid)*25, Math.sin(mid)*25);
+                ctx.lineTo(Math.cos(mid)*(this.radius-10), Math.sin(mid)*(this.radius-10));
+                ctx.lineWidth = 2;
+                ctx.shadowBlur = 0;
+                ctx.stroke();
+
+                startAngle += slice;
+            });
+
+            // 3. Holographic Tire Tread
+            ctx.beginPath();
+            ctx.arc(0, 0, this.radius + 12, 0, Math.PI*2);
+            ctx.strokeStyle = "rgba(255,255,255,0.15)";
+            ctx.lineWidth = 1;
+            ctx.setLineDash([2, 8]);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            ctx.restore();
+        }
+    }
+
+    // --- CLASS: CAR ---
+    class CyberCar {
+        constructor() {
+            this.rearWheel = new Wheel(dataRear, "#ff0055");
+            this.frontWheel = new Wheel(dataFront, "#00f3ff");
+        }
+
+        draw(cx, cy) {
+            // Hover physics
+            const hoverY = Math.sin(time * 0.04) * 6; 
+            
+            // Wheel Centers
+            const rearX = cx - 180;
+            const frontX = cx + 180;
+            const wheelY = cy + 60; // Wheels lower
+
+            const bodyY = cy + hoverY - 20; // Body higher
+
+            // 1. Draw Wheels
+            this.rearWheel.draw(rearX, wheelY);
+            this.frontWheel.draw(frontX, wheelY);
+
+            // 2. Draw Chassis
+            ctx.save();
+            
+            // --- CAR SILHOUETTE PATH ---
+            ctx.beginPath();
+            
+            // A. Rear Bumper (Bottom Left)
+            ctx.moveTo(rearX - 90, bodyY + 30);
+            
+            // B. Rear Wheel Arch
+            // Curve up and over the wheel
+            ctx.bezierCurveTo(rearX - 60, bodyY + 30, rearX - 60, bodyY - 40, rearX, bodyY - 40);
+            ctx.bezierCurveTo(rearX + 60, bodyY - 40, rearX + 60, bodyY + 30, rearX + 90, bodyY + 30);
+
+            // C. Side Skirt
+            ctx.lineTo(frontX - 90, bodyY + 30);
+
+            // D. Front Wheel Arch
+            ctx.bezierCurveTo(frontX - 60, bodyY + 30, frontX - 60, bodyY - 40, frontX, bodyY - 40);
+            ctx.bezierCurveTo(frontX + 60, bodyY - 40, frontX + 60, bodyY + 30, frontX + 90, bodyY + 30);
+
+            // E. Front Nose (Aggressive Point)
+            ctx.lineTo(frontX + 130, bodyY + 20); // Nose tip
+            ctx.lineTo(frontX + 110, bodyY - 20); // Hood start
+
+            // F. Windshield / Roofline
+            ctx.lineTo(frontX - 50, bodyY - 70); // Top of windshield (Roof start)
+            ctx.lineTo(rearX - 20, bodyY - 70);  // Roof end
+            ctx.lineTo(rearX - 100, bodyY + 0);  // Rear slope (Spoiler base)
+            
+            // G. Close Shape
+            ctx.lineTo(rearX - 90, bodyY + 30);
+            ctx.closePath();
+
+
+            // --- FILL STYLES ---
+            // Metallic Gradient Body
+            const bodyGrad = ctx.createLinearGradient(rearX - 100, bodyY - 100, frontX + 100, bodyY + 50);
+            bodyGrad.addColorStop(0, "#0a0a0a");     // Dark Rear
+            bodyGrad.addColorStop(0.3, "#1a1a24");   // Mid Body
+            bodyGrad.addColorStop(0.6, "#112");      // Mid Blue-ish
+            bodyGrad.addColorStop(1, "#050a10");     // Dark Front
+            ctx.fillStyle = bodyGrad;
+            ctx.fill();
+
+            // Glass Canopy (Window)
+            ctx.beginPath();
+            ctx.moveTo(rearX - 20, bodyY - 65);
+            ctx.lineTo(frontX - 55, bodyY - 65);
+            ctx.lineTo(frontX + 20, bodyY - 25);
+            ctx.lineTo(rearX - 40, bodyY - 25);
+            ctx.closePath();
+            ctx.fillStyle = "rgba(0, 243, 255, 0.1)"; // Cyan Glass Tint
+            ctx.fill();
+            ctx.strokeStyle = "rgba(0, 243, 255, 0.3)";
+            ctx.stroke();
+
+            // Neon Outline (The "Cyber" Look)
+            ctx.beginPath();
+            // Re-trace top outline for neon
+            ctx.moveTo(rearX - 100, bodyY + 0);
+            ctx.lineTo(rearX - 20, bodyY - 70);
+            ctx.lineTo(frontX - 50, bodyY - 70);
+            ctx.lineTo(frontX + 110, bodyY - 20);
+            ctx.lineTo(frontX + 130, bodyY + 20);
+            ctx.shadowColor = "#00f3ff";
+            ctx.shadowBlur = 15;
+            ctx.strokeStyle = "#fff";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            ctx.shadowBlur = 0; // Reset
+
+            // --- DETAILS ---
+
+            // Headlight (Laser)
+            ctx.beginPath();
+            ctx.moveTo(frontX + 125, bodyY + 22);
+            ctx.lineTo(frontX + 100, bodyY + 22);
+            ctx.strokeStyle = "#00f3ff";
+            ctx.lineWidth = 3;
+            ctx.shadowColor = "#00f3ff";
+            ctx.shadowBlur = 20;
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+
+            // Taillight (Red Trail)
+            ctx.beginPath();
+            ctx.moveTo(rearX - 100, bodyY + 5);
+            ctx.lineTo(rearX - 95, bodyY + 25);
+            ctx.strokeStyle = "#ff0055";
+            ctx.lineWidth = 4;
+            ctx.shadowColor = "#ff0055";
+            ctx.shadowBlur = 20;
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+
+            // Door Line
+            ctx.beginPath();
+            ctx.moveTo(cx, bodyY - 25);
+            ctx.lineTo(cx, bodyY + 25);
+            ctx.strokeStyle = "rgba(255,255,255,0.1)";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            ctx.restore();
+
+            // 3. VETRI CIX LOGO (Floating Above)
+            ctx.save();
+            const logoX = cx;
+            const logoY = bodyY - 140; // Higher up
+
+            // Main Text
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.font = "900 70px 'Orbitron'"; 
+            
+            // Chrome Gradient Text
+            const textGrad = ctx.createLinearGradient(logoX, logoY - 40, logoX, logoY + 40);
+            textGrad.addColorStop(0, "#fff");
+            textGrad.addColorStop(0.5, "#88ccff");
+            textGrad.addColorStop(1, "#00f3ff");
+            ctx.fillStyle = textGrad;
+            
+            // Pulsing Glow
+            const pulse = 20 + Math.sin(time * 0.1) * 10;
+            ctx.shadowColor = "#00f3ff";
+            ctx.shadowBlur = pulse;
+            ctx.fillText("VETRI CIX", logoX, logoY);
+
+            // Subtitle
+            ctx.font = "500 18px 'Rajdhani'";
+            ctx.fillStyle = "#fff";
+            ctx.shadowBlur = 0; 
+            ctx.letterSpacing = "12px";
+            ctx.fillText("AUTOMATED INTELLIGENCE", logoX, logoY + 50);
+
+            // Connecting Data Lines (From logo to car)
+            ctx.globalAlpha = 0.3;
+            ctx.strokeStyle = "#00f3ff";
+            ctx.beginPath();
+            ctx.moveTo(logoX, logoY + 70);
+            ctx.lineTo(logoX, bodyY - 70); // Connect to roof
+            ctx.setLineDash([2, 4]);
+            ctx.stroke();
+            ctx.globalAlpha = 1.0;
+
+            ctx.restore();
+
+            // 4. Underglow Reflection on Ground
+            ctx.globalCompositeOperation = "screen";
+            const glowGrad = ctx.createRadialGradient(cx, wheelY + 20, 50, cx, wheelY + 20, 350);
+            glowGrad.addColorStop(0, "rgba(0, 243, 255, 0.4)");
+            glowGrad.addColorStop(1, "transparent");
+            ctx.fillStyle = glowGrad;
+            ctx.fillRect(rearX - 100, wheelY + 20, 560, 40);
+            ctx.globalCompositeOperation = "source-over";
+        }
+    }
+
+    // --- ANIMATION LOOP ---
+    const rover = new CyberCar();
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        time++;
+
+        // Calculate center with parallax tilt
+        const cx = width / 2 + tilt.x;
+        const cy = height / 2 + tilt.y;
+
+        rover.draw(cx, cy);
+
+        // Ground Line
+        ctx.beginPath();
+        ctx.moveTo(0, cy + 130);
+        ctx.lineTo(width, cy + 130);
+        ctx.strokeStyle = "#00f3ff";
+        ctx.lineWidth = 1;
+        ctx.shadowColor = "#00f3ff";
+        ctx.shadowBlur = 10;
+        ctx.stroke();
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+</script>
+</body>
+</html>
